@@ -327,4 +327,4 @@ def sitemap():
 
 
 if __name__ == "__main__":
-    socketio.run(app, host="127.0.0.1", port=int(os.environ.get("PORT", 8007)), debug=False, allow_unsafe_werkzeug=True)
+    socketio.run(app, host="127.0.0.1", port=int(os.environ.get("PORT", 8008)), debug=False, allow_unsafe_werkzeug=True)

@@ -19,14 +19,14 @@
 ```
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 cp .env.example .env   # ALLOW_GUEST=1 にするとゲストで遊べる（開発用）
-.venv/bin/python app.py   # http://127.0.0.1:8007
+.venv/bin/python app.py   # http://127.0.0.1:8008
 .venv/bin/python -m pytest -q tests
 ```
 
-## 本番（予定・未構築）
+## 本番
 
-- ドメイン：omaebaka.webtool-labs.com、ポート 8007
-- 起動：`gunicorn -w 1 --threads 100 -b 127.0.0.1:8007 app:app`
+- ドメイン：omaebaka.webtool-labs.com、ポート 8008
+- 起動：`gunicorn -w 1 --threads 100 -b 127.0.0.1:8008 app:app`
 - nginx は WebSocket を通す設定が必要（`proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection "upgrade";`）
 - `.env`：`FIREBASE_PROJECT_ID`、`SECRET_KEY`、`ALLOW_GUEST=0`
 - `static/js/firebase-config.js` に Firebase のウェブアプリ設定を貼る
