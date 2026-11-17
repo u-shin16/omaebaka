@@ -1,0 +1,101 @@
+# History — format: ANSWER | Question
+NAPOLEON | Which French emperor was finally defeated at the Battle of Waterloo in 1815?
+1945 | In what year did World War II end?
+1914 | In what year did World War I begin?
+LINCOLN | Which U.S. president issued the Emancipation Proclamation in 1863?
+WASHINGTON | Who was the first President of the United States?
+COLUMBUS | Which explorer reached the Americas in 1492 while sailing for Spain?
+MAGELLAN | Which Portuguese explorer led the first expedition to sail around the world, though he died during the voyage?
+CLEOPATRA | Who was the last active ruler of the Ptolemaic Kingdom of Egypt?
+JULIUS CAESAR | Which Roman leader was assassinated on the Ides of March in 44 BC?
+ROME | Which city was the capital of the Roman Empire?
+PYRAMIDS | What huge ancient structures at Giza were built as tombs for pharaohs?
+SPARTA | Which ancient Greek city-state was famous for its warrior society and its stand at Thermopylae?
+ATHENS | Which ancient Greek city-state is known as the birthplace of democracy?
+ALEXANDER | Which Macedonian king built an empire stretching from Greece to India before he turned 33?
+GENGHIS KHAN | Who founded the Mongol Empire in 1206?
+GREAT WALL | What long series of fortifications was built across northern China to keep out invaders?
+QIN | Which Chinese dynasty, founded in 221 BC, gave China its first emperor?
+MARCO POLO | Which Venetian merchant became famous for describing his travels to the court of Kublai Khan?
+TITANIC | Which "unsinkable" ship sank on its maiden voyage in 1912?
+1969 | In what year did humans first land on the Moon?
+ARMSTRONG | Who was the first person to walk on the Moon?
+GAGARIN | Who became the first human to travel into space, in 1961?
+SPUTNIK | What was the name of the first artificial satellite, launched by the Soviet Union in 1957?
+BERLIN WALL | What barrier that divided a German city fell in 1989?
+COLD WAR | What was the long period of tension between the USA and the Soviet Union after 1945 called?
+GANDHI | Who led India's nonviolent independence movement against British rule?
+MANDELA | Who became South Africa's first Black president in 1994?
+KING | Which civil rights leader, Martin Luther ___ Jr., gave the "I Have a Dream" speech in 1963?
+CHURCHILL | Who was the British Prime Minister for most of World War II?
+PEARL HARBOR | Which U.S. naval base in Hawaii was attacked by Japan in December 1941?
+HIROSHIMA | On which Japanese city was the first atomic bomb used in war, in August 1945?
+MEIJI | Which Japanese era began in 1868 and brought rapid modernization?
+TOKUGAWA | Which family's shogunate ruled Japan from 1603 to 1868?
+EDO | What was the old name of Tokyo?
+KYOTO | Which city became Japan's imperial capital in 794 and remained so for over 1,000 years?
+SAMURAI | What were the warriors of feudal Japan called?
+NOBUNAGA | Which warlord, Oda ___, began the unification of Japan in the 16th century?
+PERRY | Which American commodore arrived in Japan with the "Black Ships" in 1853?
+MAGNA CARTA | What charter did King John of England agree to in 1215?
+1066 | In what year did the Battle of Hastings take place?
+VIKINGS | Which seafaring Scandinavian raiders attacked coasts across Europe from the late 8th century?
+ELIZABETH | Which English queen reigned when the Spanish Armada was defeated in 1588?
+VICTORIA | Which British queen reigned from 1837 to 1901?
+HENRY | Which English king, ___ VIII, was famous for having six wives?
+BASTILLE | The storming of which Paris prison in 1789 marked the start of the French Revolution?
+GUILLOTINE | What beheading device became a symbol of the French Revolution?
+1776 | In what year was the U.S. Declaration of Independence adopted?
+JEFFERSON | Who was the main author of the Declaration of Independence?
+CIVIL WAR | What war was fought between the Union and the Confederacy from 1861 to 1865?
+RENAISSANCE | What period of European cultural rebirth began in Italy in the 14th century?
+DA VINCI | Which Renaissance artist painted the Mona Lisa?
+MICHELANGELO | Who painted the ceiling of the Sistine Chapel?
+GUTENBERG | Who introduced the movable-type printing press to Europe around 1440?
+LUTHER | Which German monk published the Ninety-five Theses in 1517, starting the Reformation?
+GALILEO | Which Italian astronomer was put on trial by the Church for supporting a Sun-centered universe?
+COPERNICUS | Which astronomer's book, published in 1543, argued that the Earth orbits the Sun?
+DARWIN | Who wrote "On the Origin of Species" in 1859?
+INDUSTRIAL | Which revolution began in 18th-century Britain with steam power and factories?
+WATT | Which Scottish engineer, James ___, greatly improved the steam engine?
+WRIGHT | Which American brothers made the first powered airplane flight in 1903?
+LINDBERGH | Who made the first solo nonstop flight across the Atlantic Ocean in 1927?
+1929 | In what year did the Wall Street Crash happen, leading to the Great Depression?
+ROOSEVELT | Which U.S. president introduced the New Deal in the 1930s?
+KENNEDY | Which U.S. president was assassinated in Dallas in 1963?
+OBAMA | Who was the first African American president of the United States?
+LENIN | Who led the Bolsheviks in the Russian Revolution of 1917?
+STALIN | Who led the Soviet Union during World War II?
+GORBACHEV | Who was the last leader of the Soviet Union?
+1991 | In what year did the Soviet Union break up?
+MAO | Which leader, ___ Zedong, founded the People's Republic of China in 1949?
+SILK ROAD | What ancient network of trade routes linked China with the Mediterranean world?
+AZTECS | Which civilization built Tenochtitlan, on the site of today's Mexico City?
+INCAS | Which South American empire built Machu Picchu?
+MAYA | Which Mesoamerican civilization is famous for its calendar and the pyramids of Chichen Itza?
+CORTES | Which Spanish conquistador brought down the Aztec Empire in 1521?
+MESOPOTAMIA | Which region between the Tigris and Euphrates rivers is called the "cradle of civilization"?
+HAMMURABI | Which Babylonian king created one of the oldest written law codes?
+TUTANKHAMUN | Which young pharaoh's nearly intact tomb was discovered by Howard Carter in 1922?
+HIEROGLYPHS | What was the picture-based writing system of ancient Egypt called?
+ROSETTA | Which stone, found in 1799, helped scholars decode Egyptian hieroglyphs?
+POMPEII | Which Roman city was buried by the eruption of Mount Vesuvius in AD 79?
+COLOSSEUM | Which huge amphitheater in Rome hosted gladiator fights?
+HANNIBAL | Which Carthaginian general famously crossed the Alps with war elephants?
+CONSTANTINOPLE | Which city, the capital of the Byzantine Empire, fell to the Ottomans in 1453?
+OTTOMAN | Which Turkish empire lasted from around 1300 until 1922?
+CRUSADES | What were the medieval religious wars fought over the Holy Land called?
+BLACK DEATH | What plague killed a huge part of Europe's population in the 14th century?
+JOAN OF ARC | Which French heroine led troops in the Hundred Years' War and was burned at the stake in 1431?
+AMUNDSEN | Who led the first expedition to reach the South Pole, in 1911?
+HILLARY | Edmund ___ and Tenzing Norgay were the first confirmed climbers to reach Everest's summit in 1953.
+CURIE | Which scientist, Marie ___, was the first woman to win a Nobel Prize?
+NOBEL | Which Swedish inventor of dynamite left his fortune to create famous international prizes?
+EURO | Which currency's banknotes and coins went into circulation in twelve EU countries in 2002?
+UNITED NATIONS | Which international organization was founded in 1945 to keep world peace?
+APARTHEID | What was South Africa's system of racial segregation from 1948 to the early 1990s called?
+VERSAILLES | Which treaty, signed in 1919, formally ended World War I with Germany?
+D-DAY | What name is given to the Allied landings in Normandy on June 6, 1944?
+2001 | In what year did the September 11 attacks take place in the United States?
+HAN | Which Chinese dynasty ruled from 206 BC to AD 220 and gave its name to China's largest ethnic group?
+SHOTOKU | Which Japanese prince is traditionally credited with the Seventeen-Article Constitution of 604?

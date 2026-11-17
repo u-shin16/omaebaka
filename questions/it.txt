@@ -1,0 +1,101 @@
+# IT — format: ANSWER | Question
+CPU | Which part of a computer is often called its "brain"?
+RAM | What short-term memory in a computer is named "Random Access Memory"?
+HTML | Which markup language is used to structure web pages?
+CSS | Which language is used to style web pages with colors, fonts and layouts?
+JAVASCRIPT | Which programming language runs in web browsers to make pages interactive?
+PYTHON | Which programming language was named after a British comedy group?
+JAVA | Which programming language was promoted with the slogan "write once, run anywhere"?
+LINUX | Which open-source operating system kernel was created by Linus Torvalds in 1991?
+WINDOWS | What is Microsoft's operating system for PCs called?
+ANDROID | What is Google's mobile operating system called?
+IOS | What is the name of the operating system that runs on the iPhone?
+APPLE | Which company was founded in 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?
+MICROSOFT | Which company did Bill Gates co-found with Paul Allen?
+GOOGLE | Which company was founded by Larry Page and Sergey Brin?
+AMAZON | Which company, founded by Jeff Bezos, started as an online bookstore?
+NINTENDO | Which Kyoto-based company makes the Switch game console?
+SONY | Which Japanese company makes the PlayStation?
+BIT | What is the smallest unit of data in computing, a single 0 or 1?
+BYTE | What unit of data is made up of 8 bits?
+BINARY | Which number system uses only the digits 0 and 1?
+URL | What do we call a web address such as https://example.com?
+HTTP | Which web protocol's name stands for "HyperText Transfer Protocol"?
+WI-FI | What is the common name for wireless local network technology based on IEEE 802.11?
+BLUETOOTH | Which short-range wireless technology is named after a Danish king?
+EMAIL | What kind of electronic message uses addresses containing an @ sign?
+SPAM | What do we call unwanted bulk email?
+VIRUS | What type of malware attaches itself to programs and spreads when they run?
+PHISHING | What is the scam of sending fake messages to steal passwords called?
+PASSWORD | What secret string of characters do you type in to log in to an account?
+FIREWALL | What security system monitors and controls incoming and outgoing network traffic?
+COOKIE | What small piece of data does a website store in your browser to remember you?
+BUG | What do programmers call an error or flaw in a program?
+DEBUG | What is the process of finding and fixing errors in code called?
+ALGORITHM | What do we call a step-by-step set of instructions for solving a problem?
+VARIABLE | In programming, what named storage location holds a value that can change?
+LOOP | What structure repeats a block of code, such as "for" or "while"?
+FUNCTION | What reusable block of code performs a task and can return a value?
+ARRAY | What data structure stores an ordered list of elements accessed by index?
+BOOLEAN | Which data type has only two possible values, true and false?
+STRING | Which data type is used to hold text?
+INTEGER | Which data type holds whole numbers?
+COMPILER | What program translates source code into machine code before it runs?
+GIT | Which version control system was created by Linus Torvalds in 2005?
+GITHUB | Which code hosting website, bought by Microsoft in 2018, is home to millions of Git repositories?
+DATABASE | What do we call an organized collection of data managed by systems like MySQL?
+SQL | Which language is used to query relational databases?
+API | What is the three-letter abbreviation for "Application Programming Interface"?
+CLOUD | Which term describes computing services delivered over the internet, such as AWS?
+SERVER | What do we call a computer that provides data or services to other computers over a network?
+ROUTER | What device forwards data between networks, such as your home network and the internet?
+IP | What kind of address, like 192.168.0.1, identifies a device on a network?
+DNS | Which system translates domain names into IP addresses?
+GIGABYTE | What unit of data storage is roughly one thousand megabytes?
+PIXEL | What is the smallest dot of color on a digital screen called?
+USB | Which common connector standard's name stands for "Universal Serial Bus"?
+SSD | What type of storage drive has no moving parts and uses flash memory?
+GPU | What type of processor is specialized for graphics and is widely used for AI?
+NVIDIA | Which company makes GeForce graphics cards?
+AI | What two-letter abbreviation refers to machines that imitate human intelligence?
+CHATGPT | Which AI chatbot did OpenAI release in November 2022?
+TURING | Which British mathematician, Alan ___, proposed a test for machine intelligence in 1950?
+ENIAC | What was the name of the early general-purpose electronic computer completed in the USA in 1945?
+LOVELACE | Which 19th-century mathematician, Ada ___, is often called the first computer programmer?
+BABBAGE | Who designed the Analytical Engine, an early mechanical computer, Charles ___?
+MOORE | Whose law predicts that the number of transistors on a chip doubles about every two years?
+TRANSISTOR | What tiny semiconductor switch is the basic building block of modern chips?
+SILICON | Which chemical element is used to make most computer chips?
+SMARTPHONE | What do we call a mobile phone with a touchscreen that can run apps?
+IPHONE | Which Apple product did Steve Jobs introduce in 2007?
+TWITTER | Which social network was renamed "X" in 2023?
+FACEBOOK | Which social network did Mark Zuckerberg launch in 2004?
+YOUTUBE | Which video-sharing site was founded in 2005 and bought by Google in 2006?
+WIKIPEDIA | What free online encyclopedia can be edited by anyone?
+EMOJI | What are small pictures like smiley faces in messages called, using a word from Japanese?
+QR CODE | What two-dimensional barcode was invented by Denso Wave in Japan in 1994?
+CAPTCHA | What test asks you to prove you are human, for example by clicking on traffic lights?
+BROWSER | What type of software do you use to view websites, such as Chrome or Safari?
+CHROME | What is Google's web browser called?
+SAFARI | What is Apple's web browser called?
+KEYBOARD | Which input device often has its letter keys in the QWERTY layout?
+MOUSE | Which pointing device was invented by Douglas Engelbart in the 1960s?
+MONITOR | What is a computer's display screen called?
+PRINTER | What device puts digital documents onto paper?
+CTRL | On Windows, which key do you hold down together with C to copy?
+BACKUP | What do we call a copy of data kept in case the original is lost?
+ENCRYPTION | What is the process of scrambling data so that only authorized people can read it?
+BLOCKCHAIN | Which distributed ledger technology is the basis of Bitcoin?
+BITCOIN | What was the first cryptocurrency, created under the name Satoshi Nakamoto?
+OPEN SOURCE | Which term describes software whose source code anyone can view, change and share?
+UNIX | Which operating system was developed at Bell Labs starting in 1969?
+ARPANET | What was the name of the U.S. network that became the forerunner of the internet?
+BERNERS-LEE | Which British scientist, Tim ___, invented the World Wide Web in 1989?
+RUBY | Which programming language was created by Yukihiro Matsumoto in Japan?
+C | Which single-letter programming language was created by Dennis Ritchie at Bell Labs?
+TROJAN | Which type of malware disguises itself as legitimate software, named after a wooden horse?
+RANSOMWARE | What type of malware locks your files and demands payment?
+LAPTOP | What portable computer folds open to show a built-in screen and keyboard?
+TABLET | What flat touchscreen device, such as the iPad, sits between a phone and a laptop?
+AVATAR | What do we call the character or image that represents a user online or in a game?
+FAMICOM | What was the Nintendo Entertainment System called in Japan?

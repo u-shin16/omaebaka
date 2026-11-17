@@ -1,0 +1,101 @@
+# General Knowledge — format: ANSWER | Question
+7 | How many days are there in a week?
+12 | How many months are there in a year?
+SPIDER | Which eight-legged creature spins webs to catch its prey?
+RED | On a traffic light, which color means "stop"?
+HEXAGON | What is the name of a flat shape with six sides?
+OCTOPUS | Which sea creature has eight arms and three hearts?
+PENGUIN | Which flightless black-and-white bird is famous for living in Antarctica?
+OXYGEN | Which gas do humans need to breathe in to stay alive?
+WATER | What substance has the chemical formula H2O?
+CHEETAH | What is the fastest land animal in the world?
+BLUE WHALE | What is the largest animal known to have ever lived on Earth?
+GIRAFFE | Which animal has the longest neck?
+MERCURY | Which planet is closest to the Sun?
+JUPITER | What is the largest planet in our solar system?
+MARS | Which planet is known as the Red Planet?
+SATURN | Which planet is most famous for its bright rings?
+SKIN | What is the largest organ of the human body?
+HEART | Which organ pumps blood around the human body?
+206 | How many bones are there in the adult human body?
+DIAMOND | What is the hardest natural substance on Earth?
+GOLD | Which precious metal has the chemical symbol Au?
+IRON | Which metal has the chemical symbol Fe?
+SALT | Sodium chloride is better known as what common kitchen item?
+HONEY | What sweet, sticky food do bees make from flower nectar?
+RAINBOW | What arc of colors can appear when sunlight shines through raindrops?
+ICE | What do we call water that has frozen solid?
+0 | At how many degrees Celsius does pure water freeze?
+100 | At how many degrees Celsius does water boil at sea level?
+60 | How many minutes are there in one hour?
+365 | How many days are there in a common, non-leap year?
+FEBRUARY | Which month has only 28 days in a common year?
+LEAP YEAR | What do we call a year that has 366 days?
+KANGAROO | Which Australian animal hops on its back legs and carries its baby in a pouch?
+BAMBOO | What plant makes up almost all of a giant panda's diet?
+CATERPILLAR | Before it becomes a butterfly, what does a butterfly egg hatch into?
+TADPOLE | What is a baby frog called?
+PUPPY | What is a baby dog called?
+KITTEN | What is a baby cat called?
+HIVE | What is the name of the home where a colony of honeybees lives?
+SHAKESPEARE | Who wrote the plays "Romeo and Juliet" and "Hamlet"?
+CHESS | Which board game has pieces called the king, queen, bishop, knight, rook and pawn?
+BASKETBALL | In which sport would a player perform a "slam dunk"?
+11 | How many players does each soccer team have on the field at one time?
+5 | How many rings are there on the Olympic flag?
+TENNIS | Wimbledon is the oldest tournament in which sport?
+GOLF | In which sport do players dream of hitting a "hole in one"?
+CHOPSTICKS | What pair of thin sticks is used for eating in Japan, China and Korea?
+SUSHI | Which Japanese dish combines vinegared rice with raw fish or other toppings?
+CHEESE | Cheddar, brie and mozzarella are all types of what food?
+BREAD | Baguette, ciabatta and naan are all types of what food?
+POTATO | French fries are made from which vegetable?
+CARROT | Which orange root vegetable is famously said to be a favorite of rabbits?
+BANANA | Which long yellow fruit grows in bunches called "hands"?
+PINEAPPLE | Which tropical fruit with a spiky crown was named after its resemblance to a pine cone?
+COFFEE | Espresso, latte and cappuccino are all drinks made from what?
+TEA | Matcha is a finely ground powder of which kind of drink leaf?
+SUNFLOWER | Which tall yellow flower is known for turning its head to follow the sun?
+ROSE | Which flower, often red, is the classic gift on Valentine's Day?
+OAK | Acorns are the nuts of which type of tree?
+MAPLE | The leaf of which tree appears on the flag of Canada?
+NORTH | On a magnetic compass, which direction does the needle point?
+EAST | In which direction does the sun rise?
+THERMOMETER | What instrument is used to measure temperature?
+TELESCOPE | What instrument do astronomers use to look at distant stars and planets?
+MICROSCOPE | What instrument is used to see very tiny things such as cells?
+GRAVITY | What force pulls objects toward the ground on Earth?
+NEWTON | Which scientist is famous for the story of an apple falling from a tree?
+EINSTEIN | Which scientist developed the theory of relativity and the equation E=mc2?
+EDISON | Which American inventor, Thomas ___, is famous for developing a practical light bulb?
+DOCTOR | What do we call a person whose job is to treat sick people?
+DENTIST | Which professional takes care of your teeth?
+LIBRARY | Where can you usually borrow books for free?
+PASSPORT | What official document do you need to travel to another country?
+UMBRELLA | What do you open over your head to stay dry in the rain?
+ALARM CLOCK | What device rings in the morning to wake you up?
+SCISSORS | What tool with two blades do you use to cut paper?
+TOOTHBRUSH | What do you use with toothpaste to clean your teeth?
+MIRROR | What shiny surface shows your reflection?
+CALENDAR | What chart shows the days, weeks and months of the year?
+DOZEN | What word means a group of twelve?
+CENTURY | What is a period of 100 years called?
+DECADE | What is a period of ten years called?
+TRIANGLE | What do we call a shape with three sides?
+CIRCLE | What do we call a perfectly round flat shape?
+SQUARE | A rectangle with four equal sides is called what?
+90 | How many degrees are there in a right angle?
+360 | How many degrees are there in a full circle?
+PI | Which Greek letter represents the ratio of a circle's circumference to its diameter?
+26 | How many letters are there in the English alphabet?
+VOWELS | In English, what are the letters A, E, I, O and U called?
+NOUN | Which part of speech names a person, place or thing?
+VERB | Which part of speech describes an action, such as "run" or "eat"?
+PLURAL | What is the form of a word that means more than one, like "cats"?
+ANTONYM | What do we call a word that means the opposite of another word?
+SYNONYM | What do we call a word that means the same as another word?
+SPRING | Which season comes right after winter?
+WINTER | Which season is usually the coldest of the year?
+TYPHOON | What is a powerful tropical storm in the northwest Pacific, which often hits Japan, called?
+VOLCANO | What kind of mountain can erupt with lava and ash?
+EARTHQUAKE | What do we call a sudden, violent shaking of the ground?

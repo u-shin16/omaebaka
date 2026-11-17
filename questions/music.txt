@@ -1,0 +1,101 @@
+# Music — format: ANSWER | Question
+BEATLES | Which Liverpool band had the members John, Paul, George and Ringo?
+MOZART | Which Austrian composer wrote "The Magic Flute" and began composing at age five?
+BEETHOVEN | Which composer wrote nine symphonies and kept composing after losing his hearing?
+BACH | Which German Baroque composer wrote the Brandenburg Concertos?
+CHOPIN | Which Polish composer is known as the "poet of the piano"?
+VIVALDI | Who composed the set of violin concertos called "The Four Seasons"?
+TCHAIKOVSKY | Who composed the ballets "Swan Lake" and "The Nutcracker"?
+PIANO | Which keyboard instrument usually has 88 keys?
+VIOLIN | What is the smallest and highest-pitched string instrument in a standard orchestra?
+GUITAR | What instrument usually has six strings and is strummed or plucked?
+DRUMS | What set of percussion instruments did Ringo Starr play in his famous band?
+TRUMPET | Which brass instrument did Louis Armstrong famously play?
+SAXOPHONE | Which woodwind instrument made of brass was invented by Adolphe Sax?
+FLUTE | Which woodwind instrument is held sideways and played by blowing across a hole?
+HARP | Which large plucked string instrument is a national symbol of Ireland?
+CELLO | Which string instrument is larger than a viola and is played sitting down, held between the knees?
+ORCHESTRA | What is a large group of musicians playing strings, woodwinds, brass and percussion called?
+CONDUCTOR | Who leads an orchestra, often using a baton?
+OPERA | What art form tells a story through singing with an orchestra, like "Carmen"?
+SOPRANO | What is the highest female singing voice called?
+BASS | What is the lowest male singing voice called?
+OCTAVE | What is the interval between one note and the next note with the same name called?
+TEMPO | Which Italian word refers to the speed of a piece of music?
+FORTE | Which musical term means "loud"?
+CRESCENDO | Which musical term means "gradually getting louder"?
+TREBLE | Which clef is also called the G clef?
+CHORD | What do we call three or more notes played at the same time?
+RHYTHM | What is the pattern of long and short sounds and silences in music called?
+7 | How many different letter names, from A to G, are used for notes in Western music?
+5 | How many lines are there on a standard musical staff?
+ELVIS | Which singer, known as the "King of Rock and Roll," had a hit with "Hound Dog"?
+JACKSON | Which "King of Pop," Michael ___, released "Thriller," the best-selling album of all time?
+MADONNA | Which singer, known as the "Queen of Pop," released "Like a Virgin" in 1984?
+QUEEN | Which British rock band recorded "Bohemian Rhapsody" and "We Will Rock You"?
+NIRVANA | Which Seattle grunge band released "Smells Like Teen Spirit"?
+ABBA | Which Swedish group won the Eurovision Song Contest in 1974 with "Waterloo"?
+ROLLING STONES | Which British band, led by Mick Jagger, sang "(I Can't Get No) Satisfaction"?
+MARLEY | Which Jamaican singer with The Wailers sang "No Woman, No Cry"?
+JAZZ | Which music genre born in New Orleans is famous for improvisation and swing?
+BLUES | Which genre, born among African Americans in the Deep South, often uses a 12-bar structure?
+HIP HOP | Which genre emerged in the Bronx in the 1970s, featuring rapping and DJing?
+K-POP | What is popular music from South Korea usually called?
+BTS | Which South Korean boy group released the English-language hit "Dynamite" in 2020?
+SWIFT | Which singer, Taylor ___, released the albums "1989" and "Folklore"?
+ADELE | Which British singer released the albums "21" and "25"?
+BEYONCE | Which singer was a member of Destiny's Child before her huge solo career?
+SHEERAN | Which English singer, Ed ___, released "Shape of You" in 2017?
+BRUNO MARS | Which singer featured on Mark Ronson's 2014 hit "Uptown Funk"?
+LADY GAGA | Which singer released "Poker Face" and "Bad Romance"?
+BIEBER | Which Canadian singer, Justin ___, was discovered on YouTube and sang "Baby"?
+EILISH | Which singer, Billie ___, sang "Bad Guy" and swept the four main Grammy awards in 2020?
+EMINEM | Which Detroit rapper's alter ego is called Slim Shady?
+DAFT PUNK | Which French electronic duo wore robot helmets and released "Get Lucky"?
+COLDPLAY | Which British band, fronted by Chris Martin, released "Viva la Vida"?
+OASIS | Which Manchester band, led by the Gallagher brothers, sang "Wonderwall"?
+LED ZEPPELIN | Which British rock band recorded "Stairway to Heaven"?
+PINK FLOYD | Which band released the album "The Dark Side of the Moon" in 1973?
+DYLAN | Which American singer-songwriter, Bob ___, won the Nobel Prize in Literature in 2016?
+LENNON | Which Beatle wrote and sang "Imagine" as a solo artist?
+MERCURY | Which singer, Freddie ___, was the lead vocalist of Queen?
+HENDRIX | Which left-handed guitarist, Jimi ___, released "Purple Haze" in 1967?
+GRAMMY | What major American music award is shaped like a gramophone?
+EUROVISION | Which international song contest was first held in 1956?
+BILLBOARD | Which American magazine publishes the "Hot 100" music chart?
+VINYL | What material are LP records usually made of?
+CASSETTE | What magnetic tape format did the original Sony Walkman play?
+SPOTIFY | Which music streaming service was founded in Sweden and launched in 2008?
+ITUNES | Which Apple store began selling digital music downloads in 2003?
+KARAOKE | What entertainment, invented in Japan, lets you sing along to backing tracks?
+SHAMISEN | Which three-stringed Japanese instrument is played with a large plectrum called a bachi?
+KOTO | Which long Japanese zither traditionally has 13 strings?
+TAIKO | What are large traditional Japanese drums called?
+ENKA | Which emotional style of Japanese popular music is associated with singers like Hibari Misora?
+HATSUNE MIKU | Which turquoise-haired virtual singer uses Vocaloid voice software?
+SAKAMOTO | Which Japanese composer, Ryuichi ___, won an Oscar for the score of "The Last Emperor"?
+HISAISHI | Which composer, Joe ___, wrote the music for many Studio Ghibli films?
+SUKIYAKI | Under what title did Kyu Sakamoto's song reach number one in the U.S. in 1963?
+YOASOBI | Which Japanese duo had a worldwide hit in 2023 with "Idol," the theme of "Oshi no Ko"?
+KIMIGAYO | What is the title of Japan's national anthem?
+SOLFEGE | What do we call the system of singing notes as do, re, mi, fa, sol, la, ti?
+ACOUSTIC | Which word describes a guitar that does not need electric amplification?
+AMPLIFIER | What device makes the sound of an electric guitar louder?
+MICROPHONE | What device turns a singer's voice into an electrical signal?
+SYMPHONY | What is a long piece for orchestra, usually in four movements, called?
+CONCERTO | What is a piece for a solo instrument accompanied by an orchestra called?
+LULLABY | What is a gentle song sung to help a baby fall asleep called?
+DUET | What is a piece performed by two musicians called?
+QUARTET | What is a group of four musicians called?
+A CAPPELLA | Which term means singing without any instrumental accompaniment?
+METRONOME | What device clicks at a steady beat to help musicians keep time?
+TUBA | What is the largest and lowest-pitched brass instrument in the orchestra?
+ORGAN | Which keyboard instrument with large pipes is often found in churches?
+UKULELE | Which small four-stringed instrument is closely associated with Hawaii?
+BAGPIPES | Which wind instrument with an air bag is strongly associated with Scotland?
+DIDGERIDOO | Which long wooden wind instrument comes from Aboriginal Australia?
+XYLOPHONE | Which percussion instrument has wooden bars struck with mallets?
+HARMONICA | Which small instrument, also called a mouth organ, is played by blowing and drawing air?
+HALLELUJAH | Which famous chorus closes Part Two of Handel's "Messiah"?
+TROMBONE | Which brass instrument changes pitch with a long sliding tube?
+BANJO | Which string instrument with a round, drum-like body is a key sound of American bluegrass?

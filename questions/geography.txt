@@ -1,0 +1,101 @@
+# Geography — format: ANSWER | Question
+TOKYO | What is the capital of Japan?
+PARIS | What is the capital of France?
+CANBERRA | What is the capital of Australia?
+OTTAWA | What is the capital of Canada?
+BRASILIA | What is the capital of Brazil?
+NILE | Which African river is traditionally considered the longest in the world?
+AMAZON | Which South American river carries more water than any other river on Earth?
+EVEREST | What is the highest mountain on Earth?
+FUJI | What is the highest mountain in Japan?
+PACIFIC | What is the largest ocean on Earth?
+SAHARA | What is the largest hot desert in the world?
+ASIA | What is the largest continent by area?
+AUSTRALIA | Which country is also considered the world's smallest continent?
+RUSSIA | What is the largest country in the world by area?
+VATICAN CITY | What is the smallest country in the world, located inside Rome?
+GREENLAND | What is the world's largest island that is not a continent?
+MOSCOW | What is the capital of Russia?
+BEIJING | What is the capital of China?
+SEOUL | What is the capital of South Korea?
+NEW DELHI | What is the capital of India?
+CAIRO | What is the capital of Egypt?
+NAIROBI | What is the capital of Kenya?
+BERLIN | What is the capital of Germany?
+ROME | What is the capital of Italy?
+MADRID | What is the capital of Spain?
+LONDON | What is the capital of the United Kingdom?
+WASHINGTON | The capital of the United States is ___, D.C.
+MEXICO CITY | What is the capital of Mexico?
+BUENOS AIRES | What is the capital of Argentina?
+BANGKOK | What is the capital of Thailand?
+HANOI | What is the capital of Vietnam?
+MANILA | What is the capital of the Philippines?
+ATHENS | What is the capital of Greece?
+AMSTERDAM | What is the capital of the Netherlands?
+STOCKHOLM | What is the capital of Sweden?
+OSLO | What is the capital of Norway?
+WELLINGTON | What is the capital of New Zealand?
+LIMA | What is the capital of Peru?
+LISBON | What is the capital of Portugal?
+VIENNA | What is the capital of Austria?
+ANKARA | What is the capital of Turkey?
+NEPAL | Kathmandu is the capital of which Himalayan country?
+SWITZERLAND | Bern is the capital of which European country?
+ICELAND | Reykjavik is the capital of which island nation?
+CANADA | Which country has the longest coastline in the world?
+CHILE | Which long, narrow South American country stretches along the Pacific coast?
+ITALY | Which European country is shaped like a boot?
+EGYPT | In which country are the Pyramids of Giza?
+INDIA | In which country is the Taj Mahal?
+PERU | In which country is Machu Picchu?
+BRAZIL | What is the largest country in South America?
+MADAGASCAR | Which large island nation lies off the southeast coast of Africa?
+HOKKAIDO | What is the northernmost of Japan's four main islands?
+OKINAWA | Which Japanese prefecture is made up of southern islands and has Naha as its capital?
+BIWA | Lake ___, in Shiga Prefecture, is the largest lake in Japan.
+SHINANO | What is the longest river in Japan?
+OSAKA | Which Japanese city has long been called "the nation's kitchen"?
+KYUSHU | Which of Japan's four main islands is home to Fukuoka and Kagoshima?
+HONSHU | What is the largest island of Japan?
+MISSISSIPPI | Which major U.S. river reaches the sea near New Orleans?
+GRAND CANYON | Which famous canyon in Arizona was carved by the Colorado River?
+ALPS | Which European mountain range includes Mont Blanc and the Matterhorn?
+ANDES | What is the longest continental mountain range in the world, running along South America?
+HIMALAYAS | Which mountain range contains Mount Everest?
+URAL | Which mountain range is traditionally seen as the border between Europe and Asia in Russia?
+DEAD SEA | Which salt lake between Israel and Jordan is the lowest point on land?
+CASPIAN | What is the largest inland body of water in the world, the ___ Sea?
+SUPERIOR | Which is the largest of North America's Great Lakes?
+NIAGARA | Which famous waterfalls sit on the border between the USA and Canada?
+VICTORIA | Which giant waterfall lies on the border of Zambia and Zimbabwe?
+DANUBE | Which river flows through Vienna, Budapest and Belgrade?
+THAMES | Which river flows through London?
+SEINE | Which river flows through Paris?
+YANGTZE | What is the longest river in Asia?
+MEDITERRANEAN | Which sea lies between southern Europe and North Africa?
+SUEZ | Which canal connects the Mediterranean Sea to the Red Sea?
+PANAMA | Which canal in Central America connects the Atlantic and Pacific Oceans?
+GIBRALTAR | Which narrow strait separates Spain from Morocco?
+EQUATOR | What imaginary line divides the Earth into the Northern and Southern Hemispheres?
+GREENWICH | The Prime Meridian passes through which area of London?
+ANTARCTICA | Which continent is the coldest and contains the South Pole?
+AFRICA | On which continent is the Sahara Desert?
+SOUTH AMERICA | On which continent are Argentina and Colombia?
+EUROPE | Which continent is the second smallest by area?
+ARCTIC | What is the smallest and shallowest of the world's five oceans?
+INDONESIA | Which Southeast Asian country is made up of more than 17,000 islands?
+MONGOLIA | Which landlocked country lies between Russia and China?
+KAZAKHSTAN | What is the largest landlocked country in the world?
+SINGAPORE | Which city-state sits at the southern tip of the Malay Peninsula?
+MONACO | Which tiny country on the French Riviera is famous for its casino and Grand Prix?
+NEW ZEALAND | Which country is made up mainly of the North Island and the South Island?
+HAWAII | Which U.S. state is made up entirely of islands in the Pacific Ocean?
+ALASKA | What is the largest U.S. state by area?
+TEXAS | Which U.S. state is the second largest by area and has Austin as its capital?
+CALIFORNIA | Which U.S. state is home to Hollywood and Silicon Valley?
+SCOTLAND | Edinburgh is the capital of which part of the United Kingdom?
+SIBERIA | What vast region makes up most of Russia's Asian territory?
+TUNDRA | What do we call a cold, treeless region where the ground below the surface stays frozen?
+ARCHIPELAGO | What is a group or chain of islands called?
+PENINSULA | What do we call land that is surrounded by water on three sides?
