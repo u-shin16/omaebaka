@@ -1,0 +1,15 @@
+# /etc/systemd/system/omaebaka.service（下書き：User は他アプリのサービスに合わせること）
+[Unit]
+Description=Omae Baka? (English buzzer quiz)
+After=network.target
+
+[Service]
+User=CHECK_EXISTING_SERVICE_USER
+WorkingDirectory=/var/www/omaebaka
+EnvironmentFile=/var/www/omaebaka/.env
+# 部屋をメモリで持つため worker は必ず1つ
+ExecStart=/var/www/omaebaka/.venv/bin/gunicorn -w 1 --threads 100 -b 127.0.0.1:8007 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
