@@ -9,12 +9,16 @@
   <meta property="og:title" content="おまえばか? — オンライン早押しクイズ">
   <meta property="og:description" content="友だちと早押しで対戦。日本語と英語、5ジャンル各100問。">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#f4f4f1">
+  <meta name="theme-color" content="#eef3ff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+  <a class="skip" href="#app" data-i18n="skip"></a>
   <header class="top">
-    <a class="logo" href="/" aria-label="おまえばか?"><span class="logo-jp">おまえばか?</span><span class="logo-en">Omae Baka?</span></a>
+    <a class="logo" href="/" translate="no"><span class="logo-jp">おまえばか?</span></a>
     <div class="top-right">
       <div class="lang-switch" role="group" aria-label="Language">
         <button type="button" data-ui-lang="ja">日本語</button><button type="button" data-ui-lang="en">EN</button>
@@ -38,9 +42,9 @@
         </button>
         <div class="divider"><span data-i18n="or_email"></span></div>
         <form id="form-email" class="form" autocomplete="on">
-          <label><span data-i18n="email"></span><input id="in-email" type="email" required autocomplete="email"></label>
-          <label><span data-i18n="password"></span><input id="in-pass" type="password" required minlength="6" autocomplete="current-password"></label>
-          <label id="row-name" hidden><span data-i18n="display_name"></span><input id="in-regname" maxlength="16" autocomplete="nickname"></label>
+          <label><span data-i18n="email"></span><input id="in-email" name="email" type="email" required autocomplete="email" spellcheck="false" autocapitalize="off"></label>
+          <label><span data-i18n="password"></span><input id="in-pass" name="password" type="password" required minlength="6" autocomplete="current-password"></label>
+          <label id="row-name" hidden><span data-i18n="display_name"></span><input id="in-regname" name="nickname" maxlength="16" autocomplete="nickname"></label>
           <button class="btn btn-primary" type="submit" id="btn-email"></button>
         </form>
         <p class="small">
@@ -71,7 +75,7 @@
           <button id="btn-edit-name" class="btn btn-small" type="button" data-i18n="edit_name"></button>
         </div>
         <form id="name-edit" class="name-row" hidden>
-          <input id="in-newname" maxlength="16" autocomplete="nickname" aria-label="name">
+          <input id="in-newname" name="nickname" maxlength="16" autocomplete="nickname" spellcheck="false">
           <button class="btn btn-small btn-primary" type="submit" data-i18n="save"></button>
           <button id="btn-name-cancel" class="btn btn-small" type="button" data-i18n="cancel"></button>
         </form>
@@ -88,8 +92,9 @@
         <div class="panel">
           <h2 data-i18n="join_room"></h2>
           <form id="form-join" class="form">
-            <label><span data-i18n="room_code"></span><input id="in-code" maxlength="5" autocapitalize="characters" placeholder="ABCDE" class="code-input"></label>
+            <label><span data-i18n="room_code"></span><input id="in-code" name="room" maxlength="5" autocapitalize="characters" autocomplete="off" spellcheck="false" inputmode="text" placeholder="ABCDE" class="code-input" aria-describedby="join-msg"></label>
             <button class="btn btn-primary" type="submit" data-i18n="join_btn"></button>
+            <p id="join-msg" class="msg" role="status"></p>
           </form>
         </div>
       </div>
@@ -97,10 +102,11 @@
 
     <!-- 3. lobby -->
     <section id="screen-lobby" class="screen" hidden>
-      <div class="panel">
+      <div class="flip">
         <p class="small" data-i18n="room_code"></p>
-        <div class="room-code" id="lobby-code"></div>
-        <button id="btn-copy" class="btn" type="button" data-i18n="copy_link"></button>
+        <div class="room-code" id="lobby-code" translate="no"></div>
+        <p class="small muted" data-i18n="code_hint"></p>
+        <button id="btn-copy" class="btn btn-primary" type="button" data-i18n="copy_link"></button>
       </div>
       <div class="panel">
         <h2><span data-i18n="players"></span> <span id="lobby-count" class="muted"></span></h2>
@@ -123,15 +129,16 @@
         <span id="g-progress" class="pill"></span>
         <span id="g-category" class="pill pill-cat"></span>
       </div>
-      <div class="question" aria-live="polite">
+      <div class="question">
         <div id="g-countdown" class="countdown" hidden></div>
-        <p id="g-text" class="q-text"></p>
-        <div id="g-timer" class="timer"><div id="g-timer-bar"></div></div>
+        <p id="g-text" class="q-text" aria-live="polite"></p>
+        <div id="g-timer" class="timer" aria-hidden="true"><div id="g-timer-bar"></div></div>
+        <div id="g-stamp" class="stamp" aria-hidden="true"></div>
       </div>
-      <div id="g-banner" class="banner" role="status"></div>
-      <div id="g-mask" class="mask"></div>
-      <div id="g-options" class="options"></div>
-      <button id="btn-buzz" class="buzz" type="button"></button>
+      <div id="g-banner" class="banner" role="status" aria-live="assertive"></div>
+      <div id="g-mask" class="mask" role="img"></div>
+      <div id="g-options" class="options" role="group"></div>
+      <div class="buzz-wrap"><button id="btn-buzz" class="buzz" type="button"></button></div>
       <ul id="g-scores" class="scores"></ul>
       <button class="btn btn-ghost" data-leave type="button" data-i18n="leave_game"></button>
     </section>
@@ -148,10 +155,10 @@
     </section>
   </main>
 
-  <div id="toast" class="toast" role="alert" hidden></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
   <footer class="foot">
-    <a href="/terms" data-i18n="terms"></a> · <a href="/privacy" data-i18n="privacy"></a> · <a href="https://webtool-labs.com/">RakuYade</a>
+    <a href="/terms" data-i18n="terms"></a><a href="/privacy" data-i18n="privacy"></a><a href="https://webtool-labs.com/">RakuYade</a>
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>

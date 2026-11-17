@@ -51,6 +51,7 @@
   });
   socket.on('error_msg', function (d) {
     toast(t('err_' + d.code));
+    if (!$('screen-home').hidden) { $('join-msg').textContent = t('err_' + d.code); $('in-code').setAttribute('aria-invalid', 'true'); }
     if (d.code === 'room_not_found') { store('room', null); clearRoomParam(); if (!room) show('home'); }
   });
   socket.on('left', function () { room = null; store('room', null); clearRoomParam(); show('home'); });
@@ -125,19 +126,24 @@
     ev.preventDefault();
     if (!fbReady) return;
     var email = $('in-email').value.trim(), pass = $('in-pass').value, auth = firebase.auth();
+    var btn = $('btn-email');
+    if (btn.disabled) return;
+    btn.disabled = true; btn.textContent = t('signing_in');
+    var release = function () { btn.disabled = false; renderAuthMode(); };
     $('login-msg').textContent = '';
     if (authMode === 'register') {
       var name = $('in-regname').value.trim();
-      if (!name) { $('login-msg').textContent = t('choose_name'); return; }
+      if (!name) { release(); $('login-msg').textContent = t('choose_name'); $('in-regname').focus(); return; }
       auth.createUserWithEmailAndPassword(email, pass).then(function (cred) {
         local('displayName', name);
         return cred.user.updateProfile({ displayName: name }).then(function () { return cred.user.sendEmailVerification(); });
       }).then(function () {
-        $('login-msg').textContent = t('check_inbox');
+        release(); $('login-msg').textContent = t('check_inbox');
         return auth.signOut();
-      }).catch(function (e) { $('login-msg').textContent = authError(e); });
+      }).catch(function (e) { release(); $('login-msg').textContent = authError(e); });
     } else {
       auth.signInWithEmailAndPassword(email, pass).then(function (cred) {
+        release();
         if (!cred.user.emailVerified) {
           $('login-msg').innerHTML = esc(t('verify_first')) + ' <a href="#" id="link-resend">' + esc(t('resend')) + '</a>';
           $('link-resend').onclick = function (e2) {
@@ -147,7 +153,7 @@
           return;
         }
         if (cred.user.displayName) local('displayName', cred.user.displayName);
-      }).catch(function (e) { $('login-msg').textContent = authError(e); });
+      }).catch(function (e) { release(); $('login-msg').textContent = authError(e); });
     }
   });
   if ($('form-guest')) {
@@ -190,7 +196,8 @@
   $('form-join').addEventListener('submit', function (ev) {
     ev.preventDefault();
     var code = $('in-code').value.trim().toUpperCase();
-    if (code.length < 5) { toast(t('enter_code')); return; }
+    $('join-msg').textContent = ''; $('in-code').removeAttribute('aria-invalid');
+    if (code.length < 5) { $('join-msg').textContent = t('enter_code'); $('in-code').setAttribute('aria-invalid', 'true'); $('in-code').focus(); return; }
     socket.emit('join_room', { code: code });
   });
   $('in-code').addEventListener('input', function () { this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
@@ -198,6 +205,7 @@
   // change display name
   $('btn-edit-name').addEventListener('click', function () {
     $('name-view').hidden = true; $('name-edit').hidden = false;
+    $('in-newname').setAttribute('aria-label', t('display_name'));
     $('in-newname').value = me ? me.name : ''; $('in-newname').focus();
   });
   $('btn-name-cancel').addEventListener('click', function () { $('name-view').hidden = false; $('name-edit').hidden = true; });
@@ -281,7 +289,7 @@
       return;
     }
     show('game');
-    $('g-progress').textContent = room.index >= 0 ? 'Q' + (room.index + 1) + ' / ' + room.total : t('get_ready');
+    $('g-progress').textContent = room.index >= 0 ? t('progress', { n: room.index + 1, t: room.total }) : t('get_ready');
     $('g-category').textContent = room.cat ? t('cat_' + room.cat) : '';
     $('g-category').hidden = !room.cat;
     var cd = $('g-countdown');
@@ -308,6 +316,7 @@
       if (msg) cls = 'b-ng';
     }
     b.textContent = msg; b.className = 'banner ' + cls;
+    stampFor(room);
 
     // answer slots
     var m = $('g-mask');
@@ -317,6 +326,7 @@
       return '<span class="slot' + (c === '_' ? '' : ' filled') + '">' + (c === '_' ? '' : esc(c)) + '</span>';
     }).join('');
     m.className = 'mask' + (room.phase === 'reveal' ? ' reveal' : '');
+    m.setAttribute('aria-label', room.phase === 'reveal' ? t('answer_label', { a: room.answer }) : (chars || []).join(''));
 
     // buzz button
     var locked = me && room.locked.indexOf(me.uid) >= 0;
@@ -337,10 +347,28 @@
     renderOptions();
   }
 
+  // one big stamp for each result: "おまえばか?" on a miss, "ピンポーン!" on a correct answer
+  var lastStamp = '';
+  function stampFor(r) {
+    var ev = r.event, key = ev ? r.index + ':' + ev.type + ':' + (ev.uid || '') + ':' + r.locked.length : '';
+    if (!ev || key === lastStamp) return;
+    var text = '', cls = '';
+    if (ev.type === 'correct') { text = t('stamp_ok'); cls = 'ok'; }
+    else if (ev.type === 'wrong' || ev.type === 'timeout') { text = t('stamp_ng'); cls = 'ng'; }
+    else if (ev.type === 'nobody') { text = t('stamp_none'); cls = 'none'; }
+    if (!text) return;
+    lastStamp = key;
+    var el = $('g-stamp');
+    el.textContent = text; el.className = 'stamp';
+    void el.offsetWidth;            // restart the animation
+    el.className = 'stamp show ' + cls;
+    clearTimeout(stampFor._t); stampFor._t = setTimeout(function () { el.className = 'stamp'; }, 1400);
+  }
+
   function renderOptions() {
     var box = $('g-options');
     if (!options.length) { box.innerHTML = ''; return; }
-    box.innerHTML = options.map(function (c, i) { return '<button type="button" class="opt" data-ch="' + esc(c) + '"><small>' + (i + 1) + '</small>' + esc(c) + '</button>'; }).join('');
+    box.innerHTML = options.map(function (c, i) { return '<button type="button" class="opt" data-ch="' + esc(c) + '" aria-label="' + esc(t('option_label', { i: i + 1, c: c })) + '"><small aria-hidden="true">' + (i + 1) + '</small>' + esc(c) + '</button>'; }).join('');
     Array.prototype.forEach.call(box.querySelectorAll('.opt'), function (btn) {
       btn.addEventListener('click', function () { pick(btn.getAttribute('data-ch')); });
     });
