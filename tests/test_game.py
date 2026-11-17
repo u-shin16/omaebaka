@@ -16,16 +16,37 @@ def spell(r, uid, now):
 
 
 def start_and_read(r):
-    r.update_settings("a", "history", 5)
+    r.update_settings("a", "history", 5, "en")
     r.start("a", 0)
     r.tick(game.COUNTDOWN + 0.01)
     assert r.phase == "reading" and r.qi == 0
 
 
 def test_bank_has_100_each():
-    for k, v in game.QUESTIONS.items():
-        assert len(v) == 100, k
-        assert len({q["a"] for q in v}) == 100, k
+    for lang in game.LANGS:
+        for k, v in game.QUESTIONS[lang].items():
+            assert len(v) == 100, (lang, k)
+            assert len({q["a"] for q in v}) == 100, (lang, k)
+            for q in v:
+                assert game.answer_slots(q["a"]), q
+
+
+def test_kana_options_use_same_script():
+    rng = random.Random(3)
+    for ch in "あガ7Q":
+        opts = game.make_options(ch, rng)
+        assert ch in opts and len(set(opts)) == 4
+        assert all(game.char_pool(o) is game.char_pool(ch) for o in opts)
+
+
+def test_japanese_game_reveals_by_characters_and_accepts_kana():
+    r = make_room()
+    r.update_settings("a", "geography", 5, "ja")
+    r.start("a", 0); r.tick(game.COUNTDOWN + 0.01)
+    q = r.current()
+    assert q["lang"] == "ja" and r.text_shown() == q["q"][:game.JA_CHUNK]
+    r.buzz("a", 5)
+    assert spell(r, "a", 5.5) == "correct"
 
 
 def test_correct_answer_scores_and_reveals():
@@ -80,7 +101,7 @@ def test_full_game_finishes_with_ranking():
 def test_answer_hidden_until_reveal():
     r = make_room(); start_and_read(r)
     s = r.public_state(4)
-    assert "answer" not in s and set(s["mask"]) <= set("_ -.'&")
+    assert "answer" not in s and all(c == "_" or game.char_pool(c) is None for c in s["mask"])
     assert r.current()["q"] != s["text"] or len(r.words) == 1
 
 

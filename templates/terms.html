@@ -1,15 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terms of Use | Omae Baka?</title>
+  <title>利用規約 | おまえばか?</title>
   <link rel="canonical" href="https://omaebaka.webtool-labs.com/terms">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <header class="top"><a class="logo" href="/"><span class="logo-jp">おまえばか?</span><span class="logo-en">Omae Baka?</span></a></header>
+  <header class="top"><a class="logo" href="/"><span class="logo-jp">おまえばか?</span></a><div class="lang-switch"><button type="button" data-ui-lang="ja">日本語</button><button type="button" data-ui-lang="en">EN</button></div></header>
   <main class="doc">
+  <div data-lang="ja">
+    <h1>利用規約</h1>
+    <p class="small muted">最終更新日：2026年11月17日</p>
+    <p>「おまえばか?」（以下「本サービス」）は、u-shinがRakuYadeの一部として提供します。本サービスを利用した時点で、本規約に同意したものとみなします。</p>
+    <h2>1. アカウント</h2>
+    <p>アカウントはご自身で管理してください。パスワードを他人に教えたり、他人のアカウントを使ったりしないでください。</p>
+    <h2>2. 禁止事項</h2>
+    <ul>
+      <li>不快・差別的・誤解を招く表示名</li>
+      <li>ツールやプログラムを使った自動の早押し・解答</li>
+      <li>サービスや他の参加者の妨害、不正アクセスの試み</li>
+      <li>法令に反する行為、他人に迷惑をかける行為</li>
+    </ul>
+    <h2>3. 問題の内容</h2>
+    <p>問題は注意して作成していますが、すべての問題と答えの正確さを保証するものではありません。誤りを見つけた場合はお問い合わせフォームからお知らせください。</p>
+    <h2>4. 変更・停止</h2>
+    <p>予告なく本サービスの内容を変更・停止・終了したり、本規約に反するアカウントの利用を停止したりすることがあります。</p>
+    <h2>5. 免責</h2>
+    <p>本サービスは現状のまま提供します。法令で認められる範囲で、本サービスの利用によって生じた損害について責任を負いません。</p>
+    <h2>6. 準拠法</h2>
+    <p>本規約は日本法に従います。</p>
+    <h2>7. お問い合わせ</h2>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScIIbbvtUvgS6IkIx42QBsGalWYnBVXQYMgndMn4vGh8GFGOA/viewform?usp=header" target="_blank" rel="noopener noreferrer">お問い合わせフォーム</a>からご連絡ください。</p>
+  </div>
+  <div data-lang="en" hidden>
     <h1>Terms of Use</h1>
     <p class="small muted">Last updated: November 17, 2026</p>
     <p>By using "Omae Baka?" (the "Service"), provided by u-shin as part of RakuYade, you agree to these terms.</p>
@@ -32,7 +57,9 @@
     <p>These terms are governed by the laws of Japan.</p>
     <h2>7. Contact</h2>
     <p>Please use our <a href="https://docs.google.com/forms/d/e/1FAIpQLScIIbbvtUvgS6IkIx42QBsGalWYnBVXQYMgndMn4vGh8GFGOA/viewform?usp=header" target="_blank" rel="noopener noreferrer">contact form</a>.</p>
+  </div>
   </main>
-  <footer class="foot"><a href="/">Play</a> · <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://webtool-labs.com/">RakuYade</a></footer>
+  <footer class="foot"><a href="/" data-i18n="play_link">Play</a> · <a href="/terms" data-i18n="terms">Terms</a> · <a href="/privacy" data-i18n="privacy">Privacy</a> · <a href="https://webtool-labs.com/">RakuYade</a></footer>
+  <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
 </body>
 </html>

@@ -137,8 +137,8 @@ def current_user():
     return s["user"] if s and s.get("user") else None
 
 
-def fail(msg):
-    emit("error_msg", {"message": msg})
+def fail(code):
+    emit("error_msg", {"code": code})
 
 
 # ---------- socket events ----------
@@ -180,7 +180,7 @@ def on_hello(data):
         gid = re.sub(r"[^a-zA-Z0-9]", "", str(data.get("guestId") or ""))[:32] or request.sid
         user = {"uid": "guest-" + gid, "name": name, "guest": True}
     if not user:
-        emit("auth_failed", {"message": "Please sign in again."})
+        emit("auth_failed", {"code": "sign_in_again"})
         return
     with state_lock:
         old = sessions.get(request.sid, {}).get("user")
@@ -204,14 +204,14 @@ def _enter(room, user):
 def on_create(data):
     user = current_user()
     if not user:
-        return fail("Please sign in first.")
+        return fail("sign_in_first")
     data = data or {}
     with state_lock:
         _leave_current()
         code = game.new_code(rooms)
         room = game.Room(code, user, now=time.time())
         try:
-            room.update_settings(user["uid"], data.get("category", "mix"), data.get("count", 10))
+            room.update_settings(user["uid"], data.get("category", "mix"), data.get("count", 10), data.get("lang", "ja"))
         except ValueError as e:
             return fail(str(e))
         rooms[code] = room
@@ -222,12 +222,12 @@ def on_create(data):
 def on_join(data):
     user = current_user()
     if not user:
-        return fail("Please sign in first.")
+        return fail("sign_in_first")
     code = re.sub(r"[^A-Z0-9]", "", str((data or {}).get("code", "")).upper())
     with state_lock:
         room = rooms.get(code)
         if not room:
-            return fail("Room not found. Check the code.")
+            return fail("room_not_found")
         if sessions[request.sid].get("room") != code:
             _leave_current()
         try:
@@ -262,7 +262,7 @@ def _room_action(fn):
     s = sessions.get(request.sid) or {}
     room = rooms.get(s.get("room"))
     if not user or not room:
-        return fail("You are not in a room.")
+        return fail("not_in_room")
     try:
         with room.lock:
             fn(room, user["uid"], time.time())
@@ -274,7 +274,7 @@ def _room_action(fn):
 @socketio.on("settings")
 def on_settings(data):
     data = data or {}
-    _room_action(lambda r, uid, now: r.update_settings(uid, data.get("category"), data.get("count")))
+    _room_action(lambda r, uid, now: r.update_settings(uid, data.get("category"), data.get("count"), data.get("lang")))
 
 
 @socketio.on("start")

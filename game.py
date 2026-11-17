@@ -16,10 +16,13 @@ CATEGORIES = {
     "it": "IT",
 }
 CATEGORY_CHOICES = list(CATEGORIES) + ["mix"]
+LANGS = ["en", "ja"]
 COUNT_CHOICES = [5, 10, 15, 20]
 MAX_PLAYERS = 8
 
-WORD_INTERVAL = 0.32      # seconds between revealed words
+WORD_INTERVAL = 0.32      # seconds between revealed words (English)
+JA_CHUNK = 2              # Japanese is revealed this many characters at a time
+JA_INTERVAL = 0.2         # seconds between revealed Japanese chunks
 BUZZ_WINDOW = 6.0         # seconds to buzz after the full question is shown
 ANSWER_BASE = 5.0         # answer time = base + per_char * letters
 ANSWER_PER_CHAR = 1.3
@@ -29,18 +32,39 @@ POINTS_CORRECT = 10
 POINTS_WRONG = -5
 
 
+HIRAGANA = list("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"
+                "がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽぁぃぅぇぉっゃゅょ")
+KATAKANA = [chr(ord(c) + 0x60) for c in HIRAGANA] + ["ー", "ヴ"]
+_HIRA_SET, _KATA_SET = set(HIRAGANA), set(KATAKANA)
+
+
+def char_pool(ch):
+    """Characters a player chooses from for this answer character, or None if it is shown for free."""
+    if ch in string.digits:
+        return string.digits
+    if ch in string.ascii_uppercase:
+        return string.ascii_uppercase
+    if ch in _HIRA_SET:
+        return HIRAGANA
+    if ch in _KATA_SET:
+        return KATAKANA
+    return None
+
+
 def load_questions():
     bank = {}
-    for key in CATEGORIES:
-        items = []
-        with open(os.path.join(QUESTION_DIR, f"{key}.txt"), encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if not line or line.startswith("#"):
-                    continue
-                answer, question = line.split("|", 1)
-                items.append({"cat": key, "a": answer.strip().upper(), "q": question.strip()})
-        bank[key] = items
+    for lang in LANGS:
+        bank[lang] = {}
+        for key in CATEGORIES:
+            items = []
+            with open(os.path.join(QUESTION_DIR, lang, f"{key}.txt"), encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if not line or line.startswith("#"):
+                        continue
+                    answer, question = line.split("|", 1)
+                    items.append({"cat": key, "lang": lang, "a": answer.strip().upper(), "q": question.strip()})
+            bank[lang][key] = items
     return bank
 
 
@@ -49,22 +73,23 @@ QUESTIONS = load_questions()
 
 def answer_slots(answer):
     """Indexes of characters the player must pick (letters and digits)."""
-    return [i for i, ch in enumerate(answer) if ch.isalnum()]
+    return [i for i, ch in enumerate(answer) if char_pool(ch) is not None]
 
 
 def make_options(correct, rng):
-    pool = string.digits if correct.isdigit() else string.ascii_uppercase
+    pool = char_pool(correct)
     others = rng.sample([c for c in pool if c != correct], 3)
     options = others + [correct]
     rng.shuffle(options)
     return options
 
 
-def pick_questions(category, count, rng):
+def pick_questions(category, count, rng, lang="ja"):
+    bank = QUESTIONS[lang]
     if category == "mix":
-        pool = [q for items in QUESTIONS.values() for q in items]
+        pool = [q for items in bank.values() for q in items]
     else:
-        pool = list(QUESTIONS[category])
+        pool = list(bank[category])
     return rng.sample(pool, min(count, len(pool)))
 
 
@@ -75,7 +100,7 @@ class Room:
         self.lock = threading.RLock()
         self.host_uid = host["uid"]
         self.players = {}           # uid -> player dict (insertion order = join order)
-        self.settings = {"category": "mix", "count": 10}
+        self.settings = {"category": "mix", "count": 10, "lang": "ja"}
         self.phase = "lobby"
         self.questions = []
         self.qi = -1
@@ -100,7 +125,7 @@ class Room:
             self.players[uid]["name"] = user["name"]
         else:
             if len(self.players) >= MAX_PLAYERS:
-                raise ValueError("This room is full (max 8 players).")
+                raise ValueError("room_full")
             self.players[uid] = {
                 "uid": uid, "name": user["name"], "guest": user.get("guest", False),
                 "score": 0, "correct": 0, "wrong": 0, "connected": True,
@@ -134,30 +159,34 @@ class Room:
         return not self.connected_uids()
 
     # ---------- settings / flow ----------
-    def update_settings(self, uid, category=None, count=None):
+    def update_settings(self, uid, category=None, count=None, lang=None):
         if uid != self.host_uid or self.phase not in ("lobby", "finished"):
-            raise ValueError("Only the host can change settings before the game.")
+            raise ValueError("host_only_settings")
+        if lang is not None:
+            if lang not in LANGS:
+                raise ValueError("bad_lang")
+            self.settings["lang"] = lang
         if category is not None:
             if category not in CATEGORY_CHOICES:
-                raise ValueError("Unknown category.")
+                raise ValueError("bad_category")
             self.settings["category"] = category
         if count is not None:
             count = int(count)
             if count not in COUNT_CHOICES:
-                raise ValueError("Unknown question count.")
+                raise ValueError("bad_count")
             self.settings["count"] = count
         self._touch()
 
     def start(self, uid, now):
         if uid != self.host_uid:
-            raise ValueError("Only the host can start the game.")
+            raise ValueError("host_only_start")
         if self.phase not in ("lobby", "finished"):
-            raise ValueError("The game has already started.")
+            raise ValueError("already_started")
         # people who left during the previous game are dropped now
         self.players = {u: p for u, p in self.players.items() if p["connected"]}
         for p in self.players.values():
             p.update(score=0, correct=0, wrong=0)
-        self.questions = pick_questions(self.settings["category"], self.settings["count"], self.rng)
+        self.questions = pick_questions(self.settings["category"], self.settings["count"], self.rng, self.settings["lang"])
         self.qi = -1
         self.event = None
         self.phase = "countdown"
@@ -172,13 +201,26 @@ class Room:
             self._touch()
             return
         q = self.questions[self.qi]
-        self.words = q["q"].split()
+        if q["lang"] == "ja":
+            text = q["q"]
+            self.words = [text[i:i + JA_CHUNK] for i in range(0, len(text), JA_CHUNK)]
+        else:
+            self.words = q["q"].split()
         self.shown = 1
         self.locked = set()
         self.buzzer = None
         self.event = None
         self.phase = "reading"
-        self.next_at = now + WORD_INTERVAL
+        self.next_at = now + self.interval()
+
+    def interval(self):
+        q = self.current()
+        return JA_INTERVAL if q and q["lang"] == "ja" else WORD_INTERVAL
+
+    def text_shown(self):
+        q = self.current()
+        sep = "" if q and q["lang"] == "ja" else " "
+        return sep.join(self.words[: self.shown])
         self._touch()
 
     def current(self):
@@ -209,7 +251,7 @@ class Room:
             return None
         q = self.current()
         slots = answer_slots(q["a"])
-        ch = str(ch or "").upper()[:1]
+        ch = str(ch or "")[:1].upper()
         if ch not in self.options:
             return None
         if ch != q["a"][slots[self.pos]]:
@@ -246,7 +288,7 @@ class Room:
         if self.shown >= len(self.words):
             self.next_at = now + BUZZ_WINDOW
         else:
-            self.next_at = now + WORD_INTERVAL
+            self.next_at = now + self.interval()
         self._touch()
 
     def _reveal_nobody(self, now):
@@ -266,7 +308,7 @@ class Room:
         elif self.phase == "reading" and now >= self.next_at:
             if self.shown < len(self.words):
                 self.shown += 1
-                self.next_at = now + (BUZZ_WINDOW if self.shown >= len(self.words) else WORD_INTERVAL)
+                self.next_at = now + (BUZZ_WINDOW if self.shown >= len(self.words) else self.interval())
                 self._touch()
             else:
                 self._reveal_nobody(now)
@@ -307,7 +349,9 @@ class Room:
             state["remaining"] = max(0.0, self.next_at - now)
         if q and self.phase in ("reading", "answering", "reveal"):
             state["category"] = CATEGORIES[q["cat"]]
-            state["text"] = " ".join(self.words[: self.shown])
+            state["cat"] = q["cat"]
+            state["qlang"] = q["lang"]
+            state["text"] = self.text_shown()
             state["complete"] = self.shown >= len(self.words)
             ans = q["a"]
             if self.phase == "reveal":
@@ -315,9 +359,8 @@ class Room:
             else:
                 slots = answer_slots(ans)
                 filled = set(slots[: self.pos]) if self.phase == "answering" else set()
-                state["mask"] = "".join(
-                    ch if (not ch.isalnum() or i in filled) else "_" for i, ch in enumerate(ans)
-                )
+                hidden = set(slots) - filled
+                state["mask"] = ["_" if i in hidden else ch for i, ch in enumerate(ans)]
             if self.phase == "answering":
                 state["answer_left"] = max(0.0, self.answer_deadline - now)
                 state["answer_total"] = ANSWER_BASE + ANSWER_PER_CHAR * len(answer_slots(ans))

@@ -1,46 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Omae Baka? | Real-time English Buzzer Quiz with Friends</title>
-  <meta name="description" content="Omae Baka? (おまえばか?) is a free real-time multiplayer buzzer quiz in English. Create a room, share the code, and race your friends on General Knowledge, History, Geography, Music and IT.">
+  <title>おまえばか? | 友だちとオンライン早押しクイズ（日本語・English）</title>
+  <meta name="description" content="おまえばか?（Omae Baka?）は、友だちと部屋を作って遊ぶ無料のオンライン早押しクイズ。日本語と英語の問題を、常識・歴史・地理・音楽・ITの5ジャンル各100問収録。A free real-time multiplayer buzzer quiz in Japanese and English.">
   <link rel="canonical" href="https://omaebaka.webtool-labs.com/">
-  <meta property="og:title" content="Omae Baka? — English Buzzer Quiz">
-  <meta property="og:description" content="Race your friends in a real-time English buzzer quiz. 500 questions in 5 categories.">
+  <meta property="og:title" content="おまえばか? — オンライン早押しクイズ">
+  <meta property="og:description" content="友だちと早押しで対戦。日本語と英語、5ジャンル各100問。">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#1b1b2f">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header class="top">
-    <a class="logo" href="/" aria-label="Omae Baka? home"><span class="logo-jp">おまえばか?</span><span class="logo-en">Omae Baka?</span></a>
-    <div id="account" class="account"></div>
+    <a class="logo" href="/" aria-label="おまえばか?"><span class="logo-jp">おまえばか?</span><span class="logo-en">Omae Baka?</span></a>
+    <div class="top-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-ui-lang="ja">日本語</button><button type="button" data-ui-lang="en">EN</button>
+      </div>
+      <div id="account" class="account"></div>
+    </div>
   </header>
 
   <main id="app">
     <!-- 1. sign in -->
     <section id="screen-login" class="screen">
       <div class="hero">
-        <h1>Think fast.<br>Buzz first.</h1>
-        <p class="lead">A real-time English buzzer quiz for friends. Questions appear word by word — hit <b>BUZZ</b> the moment you know it, then spell the answer before time runs out.</p>
+        <h1 data-i18n-html="hero_title">Think fast.<br>Buzz first.</h1>
+        <p class="lead" data-i18n-html="hero_lead"></p>
       </div>
-      <div class="card login-card">
-        <h2>Sign in to play</h2>
+      <div class="panel login-card">
+        <h2 data-i18n="sign_in_to_play"></h2>
         <button id="btn-google" class="btn btn-google" type="button">
           <svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.6l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.7 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 7l7.4 5.7c4.3-4 6.9-9.9 6.9-17.2z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.7c-2.1 1.4-4.8 2.3-8.5 2.3-6.3 0-11.6-4.2-13.5-9.9l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>
-          Continue with Google
+          <span data-i18n="google"></span>
         </button>
-        <div class="divider"><span>or use email</span></div>
+        <div class="divider"><span data-i18n="or_email"></span></div>
         <form id="form-email" class="form" autocomplete="on">
-          <label>Email<input id="in-email" type="email" required autocomplete="email"></label>
-          <label>Password<input id="in-pass" type="password" required minlength="6" autocomplete="current-password"></label>
-          <label id="row-name" hidden>Display name<input id="in-regname" maxlength="16" autocomplete="nickname"></label>
-          <button class="btn btn-primary" type="submit" id="btn-email">Sign in</button>
+          <label><span data-i18n="email"></span><input id="in-email" type="email" required autocomplete="email"></label>
+          <label><span data-i18n="password"></span><input id="in-pass" type="password" required minlength="6" autocomplete="current-password"></label>
+          <label id="row-name" hidden><span data-i18n="display_name"></span><input id="in-regname" maxlength="16" autocomplete="nickname"></label>
+          <button class="btn btn-primary" type="submit" id="btn-email"></button>
         </form>
         <p class="small">
-          <a href="#" id="link-toggle">New here? Create an account</a> ·
-          <a href="#" id="link-reset">Forgot password?</a>
+          <a href="#" id="link-toggle"></a> ·
+          <a href="#" id="link-reset" data-i18n="forgot"></a>
         </p>
         <p id="login-msg" class="msg" role="status"></p>
         {% if allow_guest %}
@@ -53,35 +58,38 @@
         {% if not firebase_ready %}<p class="small warn">Login is not configured on this server yet.</p>{% endif %}
       </div>
       <section class="how">
-        <h2>How to play</h2>
-        <ol>
-          <li><b>Create a room</b> and pick a category: General Knowledge, History, Geography, Music, IT, or a mix of all five.</li>
-          <li><b>Share the room code</b> (or the invite link) with up to 7 friends.</li>
-          <li>The question appears one word at a time. <b>Buzz</b> (or press <kbd>Space</kbd>) as soon as you know the answer.</li>
-          <li><b>Spell the answer</b> by choosing the right letter from four options, one letter at a time (keys <kbd>1</kbd>–<kbd>4</kbd>).</li>
-          <li>Correct: <b>+10</b>. Wrong or too slow: <b>−5</b>, and you're out for that question — the others can still buzz.</li>
-        </ol>
+        <h2 data-i18n="how_title"></h2>
+        <ol data-i18n-html="how_list"></ol>
       </section>
     </section>
 
     <!-- 2. home -->
     <section id="screen-home" class="screen" hidden>
-      <div class="card">
-        <h2>Hi, <span id="home-name"></span></h2>
+      <div class="panel me-panel">
+        <div id="name-view" class="name-row">
+          <h2 class="me-name"><span data-i18n="hi"></span><span id="home-name"></span></h2>
+          <button id="btn-edit-name" class="btn btn-small" type="button" data-i18n="edit_name"></button>
+        </div>
+        <form id="name-edit" class="name-row" hidden>
+          <input id="in-newname" maxlength="16" autocomplete="nickname" aria-label="name">
+          <button class="btn btn-small btn-primary" type="submit" data-i18n="save"></button>
+          <button id="btn-name-cancel" class="btn btn-small" type="button" data-i18n="cancel"></button>
+        </form>
         <div id="home-stats" class="stats"></div>
       </div>
       <div class="grid2">
-        <div class="card">
-          <h2>Create a room</h2>
-          <label>Category<select id="sel-cat"></select></label>
-          <label>Questions<select id="sel-count"></select></label>
-          <button id="btn-create" class="btn btn-primary" type="button">Create room</button>
+        <div class="panel">
+          <h2 data-i18n="create_room"></h2>
+          <label><span data-i18n="question_lang"></span><select id="sel-qlang"></select></label>
+          <label><span data-i18n="category"></span><select id="sel-cat"></select></label>
+          <label><span data-i18n="questions"></span><select id="sel-count"></select></label>
+          <button id="btn-create" class="btn btn-primary" type="button" data-i18n="create_btn"></button>
         </div>
-        <div class="card">
-          <h2>Join a room</h2>
+        <div class="panel">
+          <h2 data-i18n="join_room"></h2>
           <form id="form-join" class="form">
-            <label>Room code<input id="in-code" maxlength="5" autocapitalize="characters" placeholder="ABCDE" class="code-input"></label>
-            <button class="btn btn-primary" type="submit">Join</button>
+            <label><span data-i18n="room_code"></span><input id="in-code" maxlength="5" autocapitalize="characters" placeholder="ABCDE" class="code-input"></label>
+            <button class="btn btn-primary" type="submit" data-i18n="join_btn"></button>
           </form>
         </div>
       </div>
@@ -89,23 +97,24 @@
 
     <!-- 3. lobby -->
     <section id="screen-lobby" class="screen" hidden>
-      <div class="card">
-        <p class="small">Room code</p>
+      <div class="panel">
+        <p class="small" data-i18n="room_code"></p>
         <div class="room-code" id="lobby-code"></div>
-        <button id="btn-copy" class="btn" type="button">Copy invite link</button>
+        <button id="btn-copy" class="btn" type="button" data-i18n="copy_link"></button>
       </div>
-      <div class="card">
-        <h2>Players <span id="lobby-count" class="muted"></span></h2>
+      <div class="panel">
+        <h2><span data-i18n="players"></span> <span id="lobby-count" class="muted"></span></h2>
         <ul id="lobby-players" class="players"></ul>
       </div>
-      <div class="card">
-        <h2>Settings</h2>
-        <label>Category<select id="lobby-cat"></select></label>
-        <label>Questions<select id="lobby-count-sel"></select></label>
-        <p id="lobby-wait" class="small muted">Waiting for the host to start…</p>
-        <button id="btn-start" class="btn btn-primary btn-big" type="button">Start game</button>
+      <div class="panel">
+        <h2 data-i18n="settings"></h2>
+        <label><span data-i18n="question_lang"></span><select id="lobby-qlang"></select></label>
+        <label><span data-i18n="category"></span><select id="lobby-cat"></select></label>
+        <label><span data-i18n="questions"></span><select id="lobby-count-sel"></select></label>
+        <p id="lobby-wait" class="small muted" data-i18n="wait_host"></p>
+        <button id="btn-start" class="btn btn-primary btn-big" type="button" data-i18n="start"></button>
       </div>
-      <button class="btn btn-ghost" data-leave type="button">Leave room</button>
+      <button class="btn btn-ghost" data-leave type="button" data-i18n="leave_room"></button>
     </section>
 
     <!-- 4. game -->
@@ -114,41 +123,42 @@
         <span id="g-progress" class="pill"></span>
         <span id="g-category" class="pill pill-cat"></span>
       </div>
-      <div class="question card" aria-live="polite">
+      <div class="question" aria-live="polite">
         <div id="g-countdown" class="countdown" hidden></div>
         <p id="g-text" class="q-text"></p>
         <div id="g-timer" class="timer"><div id="g-timer-bar"></div></div>
       </div>
       <div id="g-banner" class="banner" role="status"></div>
-      <div id="g-mask" class="mask" aria-label="Answer"></div>
+      <div id="g-mask" class="mask"></div>
       <div id="g-options" class="options"></div>
-      <button id="btn-buzz" class="buzz" type="button">BUZZ</button>
+      <button id="btn-buzz" class="buzz" type="button"></button>
       <ul id="g-scores" class="scores"></ul>
-      <button class="btn btn-ghost" data-leave type="button">Leave game</button>
+      <button class="btn btn-ghost" data-leave type="button" data-i18n="leave_game"></button>
     </section>
 
     <!-- 5. results -->
     <section id="screen-result" class="screen" hidden>
-      <div class="card">
-        <h2>Results</h2>
+      <div class="panel">
+        <h2 data-i18n="results"></h2>
         <ol id="r-ranking" class="ranking"></ol>
-        <p id="r-wait" class="small muted">The host can start another round.</p>
-        <button id="btn-again" class="btn btn-primary btn-big" type="button">Play again</button>
+        <p id="r-wait" class="small muted" data-i18n="host_again"></p>
+        <button id="btn-again" class="btn btn-primary btn-big" type="button" data-i18n="play_again"></button>
       </div>
-      <button class="btn btn-ghost" data-leave type="button">Leave room</button>
+      <button class="btn btn-ghost" data-leave type="button" data-i18n="leave_room"></button>
     </section>
   </main>
 
   <div id="toast" class="toast" role="alert" hidden></div>
 
   <footer class="foot">
-    <a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="https://webtool-labs.com/">RakuYade</a>
+    <a href="/terms" data-i18n="terms"></a> · <a href="/privacy" data-i18n="privacy"></a> · <a href="https://webtool-labs.com/">RakuYade</a>
   </footer>
 
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
   <script src="{{ url_for('static', filename='js/firebase-config.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
