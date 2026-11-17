@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "providers": {
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Omae Baka?",
+        "supportEmail": "yushin.tokuda@gmail.com",
+        "authorizedRedirectUris": ["https://omaebaka.webtool-labs.com", "http://localhost:8007"]
+      }
+    }
+  }
+}

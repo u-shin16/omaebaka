@@ -70,8 +70,9 @@ def verify_token(token):
     from google.oauth2 import id_token
 
     try:
-        claims = id_token.verify_firebase_token(token, g_requests.Request(), audience=FIREBASE_PROJECT_ID)
-    except Exception:
+        claims = id_token.verify_firebase_token(token, g_requests.Request(), audience=FIREBASE_PROJECT_ID, clock_skew_in_seconds=30)
+    except Exception as e:
+        app.logger.warning("token rejected: %s", str(e)[:200])
         return None
     if not claims:
         return None
