@@ -19,6 +19,8 @@ def start_and_read(r):
     r.update_settings("a", "history", 5, "en")
     r.start("a", 0)
     r.tick(game.COUNTDOWN + 0.01)
+    assert r.phase == "intro" and r.qi == 0 and r.public_state(game.COUNTDOWN)["index"] == 0
+    r.tick(game.COUNTDOWN + game.INTRO_TIME + 0.02)
     assert r.phase == "reading" and r.qi == 0
 
 
@@ -42,7 +44,7 @@ def test_kana_options_use_same_script():
 def test_japanese_game_reveals_by_characters_and_accepts_kana():
     r = make_room()
     r.update_settings("a", "geography", 5, "ja")
-    r.start("a", 0); r.tick(game.COUNTDOWN + 0.01)
+    r.start("a", 0); r.tick(game.COUNTDOWN + 0.01); r.tick(game.COUNTDOWN + game.INTRO_TIME + 0.02)
     q = r.current()
     assert q["lang"] == "ja" and r.text_shown() == q["q"][:game.JA_CHUNK]
     r.buzz("a", 5)
@@ -56,7 +58,7 @@ def test_correct_answer_scores_and_reveals():
     assert spell(r, "a", 5.5) == "correct"
     assert r.players["a"]["score"] == 10 and r.phase == "reveal"
     r.tick(5.5 + game.REVEAL_TIME + 0.01)
-    assert r.qi == 1 and r.phase == "reading"
+    assert r.qi == 1 and r.phase == "intro"
 
 
 def test_wrong_locks_out_and_other_can_buzz():

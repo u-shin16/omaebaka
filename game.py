@@ -28,6 +28,7 @@ ANSWER_BASE = 5.0         # answer time = base + per_char * letters
 ANSWER_PER_CHAR = 1.3
 REVEAL_TIME = 4.0         # seconds the correct answer is shown
 COUNTDOWN = 3.0           # seconds before the first question
+INTRO_TIME = 1.6          # seconds "Question N" is shown before each question
 POINTS_CORRECT = 10
 POINTS_WRONG = -5
 
@@ -206,12 +207,19 @@ class Room:
             self.words = [text[i:i + JA_CHUNK] for i in range(0, len(text), JA_CHUNK)]
         else:
             self.words = q["q"].split()
-        self.shown = 1
+        self.shown = 0
         self.locked = set()
         self.buzzer = None
         self.event = None
+        self.phase = "intro"
+        self.next_at = now + INTRO_TIME
+        self._touch()
+
+    def _begin_reading(self, now):
+        self.shown = 1
         self.phase = "reading"
         self.next_at = now + self.interval()
+        self._touch()
 
     def interval(self):
         q = self.current()
@@ -221,7 +229,6 @@ class Room:
         q = self.current()
         sep = "" if q and q["lang"] == "ja" else " "
         return sep.join(self.words[: self.shown])
-        self._touch()
 
     def current(self):
         if 0 <= self.qi < len(self.questions):
@@ -305,6 +312,8 @@ class Room:
         before = self.version
         if self.phase == "countdown" and now >= self.next_at:
             self._next_question(now)
+        elif self.phase == "intro" and now >= self.next_at:
+            self._begin_reading(now)
         elif self.phase == "reading" and now >= self.next_at:
             if self.shown < len(self.words):
                 self.shown += 1
@@ -316,7 +325,7 @@ class Room:
             self._wrong(self.buzzer, now, reason="timeout")
         elif self.phase == "reveal" and now >= self.next_at:
             self._next_question(now)
-        if self.phase in ("reading", "answering", "countdown") and self.is_empty():
+        if self.phase in ("intro", "reading", "answering", "countdown") and self.is_empty():
             # nobody left: stop the game quietly
             self.phase = "finished"
             self._touch()
@@ -347,6 +356,9 @@ class Room:
         }
         if self.phase == "countdown":
             state["remaining"] = max(0.0, self.next_at - now)
+        if q and self.phase == "intro":
+            state["cat"] = q["cat"]
+            state["qlang"] = q["lang"]
         if q and self.phase in ("reading", "answering", "reveal"):
             state["category"] = CATEGORIES[q["cat"]]
             state["cat"] = q["cat"]

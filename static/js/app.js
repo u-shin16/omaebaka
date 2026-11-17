@@ -284,9 +284,12 @@
     $('g-progress').textContent = room.index >= 0 ? 'Q' + (room.index + 1) + ' / ' + room.total : t('get_ready');
     $('g-category').textContent = room.cat ? t('cat_' + room.cat) : '';
     $('g-category').hidden = !room.cat;
-    $('g-countdown').hidden = room.phase !== 'countdown';
+    var cd = $('g-countdown');
+    cd.hidden = room.phase !== 'countdown' && room.phase !== 'intro';
+    cd.classList.toggle('intro', room.phase === 'intro');
+    if (room.phase === 'intro') cd.textContent = t('q_num', { n: room.index + 1 });
     var qt = $('g-text');
-    if (room.phase === 'countdown') qt.textContent = '';
+    if (room.phase === 'countdown' || room.phase === 'intro') qt.textContent = '';
     if (room.text !== undefined) qt.textContent = room.text + (room.complete ? '' : (room.qlang === 'ja' ? '…' : ' …'));
     qt.lang = room.qlang || 'ja';
 
@@ -318,7 +321,7 @@
     // buzz button
     var locked = me && room.locked.indexOf(me.uid) >= 0;
     var bz = $('btn-buzz');
-    bz.hidden = !(room.phase === 'reading' || room.phase === 'countdown');
+    bz.hidden = !(room.phase === 'reading' || room.phase === 'countdown' || room.phase === 'intro');
     bz.disabled = room.phase !== 'reading' || locked;
     bz.textContent = locked ? t('locked') : t('buzz');
 
