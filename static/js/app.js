@@ -84,7 +84,12 @@
 
   function clearRoomParam() { if (location.search) history.replaceState(null, '', location.pathname); }
 
+  // Until Firebase has restored the saved sign-in, show nothing:
+  // showing the sign-in screen first made it flash on every reload for signed-in players.
+  var authResolved = false;
+
   function hello() {
+    if (fbReady && !authResolved) return;      // onAuthStateChanged calls hello() when ready
     if (fbReady && firebase.auth().currentUser) {
       var u = firebase.auth().currentUser;
       u.getIdToken().then(function (token) {
@@ -107,11 +112,14 @@
     firebase.initializeApp(FIREBASE_CONFIG);
     fbReady = true;
     firebase.auth().onAuthStateChanged(function (u) {
-      if (u && !u.emailVerified && !u.providerData.some(function (p) { return p.providerId === 'google.com'; })) return;
+      authResolved = true;
+      if (u && !u.emailVerified && !u.providerData.some(function (p) { return p.providerId === 'google.com'; })) { show('login'); return; }
       if (u) { if (socket.connected) hello(); }
-      else if (!local('guestName')) { me = null; renderAccount(); show('login'); }
+      else if (local('guestName') && $('form-guest')) { if (socket.connected) hello(); }
+      else { me = null; renderAccount(); show('login'); }
     });
   } else {
+    show('login');
     $('btn-google').disabled = true;
     $('btn-email').disabled = true;
   }
