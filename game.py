@@ -28,8 +28,7 @@ MAX_PLAYERS = 8
 JA_INTERVAL = 0.12        # seconds per character (Japanese)
 EN_INTERVAL = 0.05        # seconds per character (English letters are narrower and words longer)
 BUZZ_WINDOW = 6.0         # seconds to buzz after the full question is shown
-ANSWER_BASE = 5.0         # answer time = base + per_char * letters
-ANSWER_PER_CHAR = 1.3
+PICK_TIME = 5.0           # seconds to choose each character; resets after every correct character
 REVEAL_TIME = 4.0         # seconds the correct answer is shown
 COUNTDOWN = 3.0           # seconds before the first question
 INTRO_TIME = 1.6          # seconds "Question N" is shown before each question
@@ -261,7 +260,7 @@ class Room:
         self.pos = 0
         slots = answer_slots(q["a"])
         self.options = make_options(q["a"][slots[0]], self.rng)
-        self.answer_deadline = now + ANSWER_BASE + ANSWER_PER_CHAR * len(slots)
+        self.answer_deadline = now + PICK_TIME
         self.phase = "answering"
         self.event = {"type": "buzz", "uid": uid, "name": p["name"]}
         self._touch()
@@ -290,6 +289,7 @@ class Room:
             self._touch()
             return "correct"
         self.options = make_options(q["a"][slots[self.pos]], self.rng)
+        self.answer_deadline = now + PICK_TIME      # the clock starts again for the next character
         self._touch()
         return "ok"
 
@@ -394,7 +394,7 @@ class Room:
                 state["mask"] = ["_" if i in hidden else ch for i, ch in enumerate(ans)]
             if self.phase == "answering":
                 state["answer_left"] = max(0.0, self.answer_deadline - now)
-                state["answer_total"] = ANSWER_BASE + ANSWER_PER_CHAR * len(answer_slots(ans))
+                state["answer_total"] = PICK_TIME
             if self.phase == "reading" and state["complete"]:
                 state["buzz_left"] = max(0.0, self.next_at - now)
         if self.phase == "finished":

@@ -130,3 +130,18 @@ def test_results_include_review_of_played_questions():
         t += 0.5; r.tick(t)
     rev = r.public_state(t)["review"]
     assert len(rev) == 5 and all(x["q_ja"] and x["a_ja"] for x in rev)
+
+
+def test_timer_resets_after_each_correct_character():
+    r = make_room(); start_and_read(r)
+    # pick a question whose answer has at least 2 characters to choose
+    while len(game.answer_slots(r.current()["a"])) < 2:
+        r.questions[r.qi] = next(q for q in game.QUESTIONS["en"]["history"] if len(game.answer_slots(q["a"])) >= 2)
+    r.buzz("a", 10)
+    q = r.current(); first = q["a"][game.answer_slots(q["a"])[0]]
+    assert r.pick("a", first, 10 + game.PICK_TIME - 0.5) == "ok"
+    # well past the first deadline, but still within the new one
+    r.tick(10 + game.PICK_TIME + 1)
+    assert r.phase == "answering"
+    r.tick(10 + game.PICK_TIME - 0.5 + game.PICK_TIME + 0.01)
+    assert r.phase != "answering"
