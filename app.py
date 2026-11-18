@@ -121,7 +121,7 @@ def broadcast(room):
 
 def ticker():
     while True:
-        socketio.sleep(0.1)
+        socketio.sleep(0.05)
         now = time.time()
         with state_lock:
             for code, room in list(rooms.items()):

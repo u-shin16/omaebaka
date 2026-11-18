@@ -79,7 +79,7 @@
   });
   socket.on('left', function () { room = null; store('room', null); clearRoomParam(); show('home'); });
   socket.on('room', function (s) { room = s; receivedAt = performance.now(); store('room', s.code); render(); });
-  socket.on('private', function (p) { options = p.options || []; renderOptions(); });
+  socket.on('private', function (p) { options = p.options || []; pickPending = false; renderOptions(); });
   socket.on('disconnect', function () { toast(t('reconnecting')); });
 
   function clearRoomParam() { if (location.search) history.replaceState(null, '', location.pathname); }
@@ -272,10 +272,18 @@
     if (e.target && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
     if (e.code === 'Space') { e.preventDefault(); buzz(); return; }
     var n = Number(e.key);
-    if (n >= 1 && n <= 4 && options[n - 1]) pick(options[n - 1]);
+    if (n >= 1 && n <= 4 && options[n - 1] && !e.repeat) pick(options[n - 1]);
     else if (/^[a-z]$/i.test(e.key) && options.indexOf(e.key.toUpperCase()) >= 0) pick(e.key.toUpperCase());
   });
-  function pick(ch) { socket.emit('pick', { ch: ch }); options = []; renderOptions(); }
+  // Keep the four buttons on screen while waiting for the next letters.
+  // Removing them made the layout jump, which looked like the screen flashing.
+  var pickPending = false;
+  function pick(ch) {
+    if (pickPending) return;
+    pickPending = true;
+    socket.emit('pick', { ch: ch });
+    Array.prototype.forEach.call($('g-options').querySelectorAll('.opt'), function (b) { b.disabled = true; });
+  }
 
   function nameTag(p) {
     return esc(p.name) + (me && p.uid === me.uid ? ' <span class="tag tag-me">' + esc(t('you')) + '</span>' : '');
@@ -363,7 +371,7 @@
       if (!p.connected) c.push('off');
       return '<li class="' + c.join(' ') + '"><span class="nm">' + nameTag(p) + (p.connected ? '' : ' <span class="muted small">(' + esc(t('offline')) + ')</span>') + '</span><span class="pt">' + p.score + '</span></li>';
     }).join('');
-    if (room.phase !== 'answering') options = [];
+    if (room.phase !== 'answering') { options = []; pickPending = false; }
     renderOptions();
   }
 
@@ -388,9 +396,21 @@
   function renderOptions() {
     var box = $('g-options');
     if (!options.length) { box.innerHTML = ''; return; }
-    box.innerHTML = options.map(function (c, i) { return '<button type="button" class="opt" data-ch="' + esc(c) + '" aria-label="' + esc(t('option_label', { i: i + 1, c: c })) + '"><small aria-hidden="true">' + (i + 1) + '</small>' + esc(c) + '</button>'; }).join('');
-    Array.prototype.forEach.call(box.querySelectorAll('.opt'), function (btn) {
-      btn.addEventListener('click', function () { pick(btn.getAttribute('data-ch')); });
+    var btns = box.querySelectorAll('.opt');
+    if (btns.length !== options.length) {
+      box.innerHTML = options.map(function (c, i) { return '<button type="button" class="opt"><small aria-hidden="true">' + (i + 1) + '</small><span></span></button>'; }).join('');
+      btns = box.querySelectorAll('.opt');
+      Array.prototype.forEach.call(btns, function (btn) {
+        btn.addEventListener('click', function () { pick(btn.getAttribute('data-ch')); });
+      });
+    }
+    // update the letters in place so the buttons never disappear
+    options.forEach(function (c, i) {
+      var b = btns[i];
+      b.setAttribute('data-ch', c);
+      b.setAttribute('aria-label', t('option_label', { i: i + 1, c: c }));
+      b.querySelector('span').textContent = c;
+      b.disabled = pickPending;
     });
   }
 

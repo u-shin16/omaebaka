@@ -24,9 +24,9 @@ LANGS = ["en", "ja"]
 COUNT_CHOICES = [5, 10, 15, 20]
 MAX_PLAYERS = 8
 
-WORD_INTERVAL = 0.32      # seconds between revealed words (English)
-JA_CHUNK = 2              # Japanese is revealed this many characters at a time
-JA_INTERVAL = 0.2         # seconds between revealed Japanese chunks
+# questions appear one character at a time
+JA_INTERVAL = 0.12        # seconds per character (Japanese)
+EN_INTERVAL = 0.05        # seconds per character (English letters are narrower and words longer)
 BUZZ_WINDOW = 6.0         # seconds to buzz after the full question is shown
 ANSWER_BASE = 5.0         # answer time = base + per_char * letters
 ANSWER_PER_CHAR = 1.3
@@ -206,11 +206,7 @@ class Room:
             self._touch()
             return
         q = self.questions[self.qi]
-        if q["lang"] == "ja":
-            text = q["q"]
-            self.words = [text[i:i + JA_CHUNK] for i in range(0, len(text), JA_CHUNK)]
-        else:
-            self.words = q["q"].split()
+        self.words = list(q["q"])        # one entry per character
         self.shown = 0
         self.locked = set()
         self.buzzer = None
@@ -227,12 +223,10 @@ class Room:
 
     def interval(self):
         q = self.current()
-        return JA_INTERVAL if q and q["lang"] == "ja" else WORD_INTERVAL
+        return JA_INTERVAL if q and q["lang"] == "ja" else EN_INTERVAL
 
     def text_shown(self):
-        q = self.current()
-        sep = "" if q and q["lang"] == "ja" else " "
-        return sep.join(self.words[: self.shown])
+        return "".join(self.words[: self.shown])
 
     def current(self):
         if 0 <= self.qi < len(self.questions):
@@ -320,8 +314,13 @@ class Room:
             self._begin_reading(now)
         elif self.phase == "reading" and now >= self.next_at:
             if self.shown < len(self.words):
-                self.shown += 1
-                self.next_at = now + (BUZZ_WINDOW if self.shown >= len(self.words) else self.interval())
+                # catch up if the clock ticked slower than one character
+                step = self.interval()
+                while self.shown < len(self.words) and now >= self.next_at:
+                    self.shown += 1
+                    self.next_at += step
+                if self.shown >= len(self.words):
+                    self.next_at = now + BUZZ_WINDOW
                 self._touch()
             else:
                 self._reveal_nobody(now)

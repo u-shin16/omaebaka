@@ -46,7 +46,9 @@ def test_japanese_game_reveals_by_characters_and_accepts_kana():
     r.update_settings("a", "geography", 5, "ja")
     r.start("a", 0); r.tick(game.COUNTDOWN + 0.01); r.tick(game.COUNTDOWN + game.INTRO_TIME + 0.02)
     q = r.current()
-    assert q["lang"] == "ja" and r.text_shown() == q["q"][:game.JA_CHUNK]
+    assert q["lang"] == "ja" and r.text_shown() == q["q"][:1]
+    r.tick(game.COUNTDOWN + game.INTRO_TIME + 0.02 + game.JA_INTERVAL * 3 + 0.001)
+    assert r.text_shown() == q["q"][:4]
     r.buzz("a", 5)
     assert spell(r, "a", 5.5) == "correct"
 
