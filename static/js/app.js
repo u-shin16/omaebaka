@@ -19,6 +19,7 @@
 
   function show(name) {
     ['login', 'name', 'home', 'lobby', 'game', 'result'].forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
+    document.body.classList.add('ready');
   }
   function toast(msg) {
     var el = $('toast'); el.textContent = msg; el.hidden = false;
@@ -40,6 +41,7 @@
   socket.on('connect', function () { hello(); });
   socket.on('welcome', function (d) {
     me = d.user; stats = d.stats;
+    if (d.named !== false) local('meCache', JSON.stringify({ user: me, stats: stats }));
     renderAccount(); renderHome();
     if (d.named === false) {           // first sign-in: choose a name before anything else
       $('in-firstname').value = ''; $('name-msg').textContent = '';
@@ -75,10 +77,14 @@
     toast(t('err_' + d.code));
     if (!$('screen-name').hidden) $('name-msg').textContent = t('err_' + d.code);
     if (!$('screen-home').hidden) { $('join-msg').textContent = t('err_' + d.code); $('in-code').setAttribute('aria-invalid', 'true'); }
-    if (d.code === 'room_not_found') { store('room', null); clearRoomParam(); if (!room) show('home'); }
+    if (d.code === 'room_not_found') { store('room', null); store('roomState', null); clearRoomParam(); room = null; show('home'); }
   });
-  socket.on('left', function () { room = null; store('room', null); clearRoomParam(); show('home'); });
-  socket.on('room', function (s) { room = s; receivedAt = performance.now(); store('room', s.code); render(); });
+  socket.on('left', function () { room = null; store('room', null); store('roomState', null); clearRoomParam(); show('home'); });
+  socket.on('room', function (s) {
+    room = s; receivedAt = performance.now(); store('room', s.code);
+    try { store('roomState', JSON.stringify(s)); } catch (e) {}
+    render();
+  });
   socket.on('private', function (p) { options = p.options || []; pickPending = false; renderOptions(); });
   socket.on('disconnect', function () { toast(t('reconnecting')); });
 
@@ -116,7 +122,7 @@
       if (u && !u.emailVerified && !u.providerData.some(function (p) { return p.providerId === 'google.com'; })) { show('login'); return; }
       if (u) { if (socket.connected) hello(); }
       else if (local('guestName') && $('form-guest')) { if (socket.connected) hello(); }
-      else { me = null; renderAccount(); show('login'); }
+      else { me = null; local('meCache', null); store('roomState', null); renderAccount(); show('login'); }
     });
   } else {
     show('login');
@@ -197,7 +203,7 @@
     el.innerHTML = '<span class="me">' + esc(me.name) + '</span><button class="btn btn-small" id="btn-logout" type="button">' + esc(t('sign_out')) + '</button>';
     $('btn-logout').onclick = function () {
       if (room) socket.emit('leave_room');
-      local('guestName', null); local('displayName', null); store('room', null);
+      local('guestName', null); local('displayName', null); local('meCache', null); store('room', null); store('roomState', null);
       me = null; room = null; renderAccount(); show('login');
       if (fbReady) firebase.auth().signOut();
       socket.disconnect(); socket.connect();
@@ -431,6 +437,20 @@
 
   // language switch re-draws dynamic parts
   I18N.onChange(function () { renderAuthMode(); renderAccount(); renderHome(); render(); });
+
+  // Reloading while signed in: draw the last screen right away from what was saved,
+  // then the live data from the server replaces it a moment later.
+  (function restore() {
+    var cached = null;
+    try { cached = JSON.parse(local('meCache') || 'null'); } catch (e) {}
+    if (!cached || !cached.user) return;
+    me = cached.user; stats = cached.stats;
+    renderAccount(); renderHome();
+    var saved = null;
+    try { saved = store('room') ? JSON.parse(store('roomState') || 'null') : null; } catch (e) {}
+    if (saved && saved.code === store('room')) { room = saved; receivedAt = performance.now(); render(); }
+    else show('home');
+  })();
 
   var q = new URLSearchParams(location.search).get('room');
   if (q) $('in-code').value = q.toUpperCase();
