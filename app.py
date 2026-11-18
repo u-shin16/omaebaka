@@ -34,7 +34,19 @@ def db():
         "CREATE TABLE IF NOT EXISTS stats (uid TEXT PRIMARY KEY, games INTEGER DEFAULT 0,"
         " wins INTEGER DEFAULT 0, correct INTEGER DEFAULT 0)"
     )
+    conn.execute("CREATE TABLE IF NOT EXISTS names (uid TEXT PRIMARY KEY, name TEXT NOT NULL)")
     return conn
+
+
+def get_name(uid):
+    with _db_lock, db() as conn:
+        row = conn.execute("SELECT name FROM names WHERE uid=?", (uid,)).fetchone()
+    return row[0] if row else None
+
+
+def save_name(uid, name):
+    with _db_lock, db() as conn:
+        conn.execute("INSERT INTO names (uid, name) VALUES (?, ?) ON CONFLICT(uid) DO UPDATE SET name=excluded.name", (uid, name))
 
 
 def get_stats(uid):
@@ -172,9 +184,13 @@ def on_hello(data):
     data = data or {}
     user = None
     claims = verify_token(data.get("token"))
+    named = True
     if claims:
-        name = clean_name(data.get("name")) or clean_name(claims.get("name")) or clean_name((claims.get("email") or "").split("@")[0]) or "Player"
-        user = {"uid": claims["user_id"] if "user_id" in claims else claims["sub"], "name": name, "guest": False}
+        uid = claims["user_id"] if "user_id" in claims else claims["sub"]
+        stored = get_name(uid)
+        # the name a player chose is kept on the server; until then they are asked to choose one
+        named = stored is not None
+        user = {"uid": uid, "name": stored or "Player", "guest": False}
     elif ALLOW_GUEST and data.get("guest"):
         name = clean_name(data.get("name")) or "Guest"
         gid = re.sub(r"[^a-zA-Z0-9]", "", str(data.get("guestId") or ""))[:32] or request.sid
@@ -189,7 +205,33 @@ def on_hello(data):
         sessions[request.sid] = {"user": user, "room": None}
         user_sids.setdefault(user["uid"], set()).add(request.sid)
     stats = get_stats(user["uid"]) if not user["guest"] else None
-    emit("welcome", {"user": user, "stats": stats})
+    emit("welcome", {"user": user, "stats": stats, "named": named})
+
+
+@socketio.on("set_name")
+def on_set_name(data):
+    user = current_user()
+    if not user:
+        return fail("sign_in_first")
+    name = clean_name((data or {}).get("name"))
+    if not name:
+        return fail("bad_name")
+    if not user["guest"]:
+        save_name(user["uid"], name)
+    with state_lock:
+        for sid in user_sids.get(user["uid"], ()):
+            s = sessions.get(sid)
+            if s and s.get("user"):
+                s["user"]["name"] = name
+        user["name"] = name
+        code = (sessions.get(request.sid) or {}).get("room")
+        room = rooms.get(code)
+        if room and user["uid"] in room.players:
+            with room.lock:
+                room.players[user["uid"]]["name"] = name
+                room._touch()
+            broadcast(room)
+    emit("name_set", {"name": name})
 
 
 def _enter(room, user):

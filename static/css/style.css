@@ -101,6 +101,11 @@ select:disabled { background: var(--studio); color: var(--sub); }
 .how li { margin-bottom: 8px; }
 kbd { border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; font-size: .85em; font-family: inherit; background: var(--board); }
 
+/* first sign-in: choose a name */
+#form-name { display: flex; flex-direction: column; gap: 12px; margin-top: 16px; }
+#form-name label { margin: 0; }
+.name-title { margin: 0; font-size: clamp(2rem, 9vw, 2.6rem); }
+
 /* home */
 .grid2 { display: grid; gap: 16px; grid-template-columns: 1fr; }
 @media (min-width: 600px) { .grid2 { grid-template-columns: 1fr 1fr; } }

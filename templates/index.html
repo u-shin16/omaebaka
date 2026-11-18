@@ -51,7 +51,6 @@
         <form id="form-email" class="form" autocomplete="on">
           <label><span data-i18n="email"></span><input id="in-email" name="email" type="email" required autocomplete="email" spellcheck="false" autocapitalize="off"></label>
           <label><span data-i18n="password"></span><input id="in-pass" name="password" type="password" required minlength="6" autocomplete="current-password"></label>
-          <label id="row-name" hidden><span data-i18n="display_name"></span><input id="in-regname" name="nickname" maxlength="16" autocomplete="nickname"></label>
           <button class="btn btn-primary" type="submit" id="btn-email"></button>
         </form>
         <p class="small">
@@ -72,6 +71,17 @@
         <h2 data-i18n="how_title"></h2>
         <ol data-i18n-html="how_list"></ol>
       </section>
+    </section>
+
+    <!-- 1b. choose a name (first sign-in) -->
+    <section id="screen-name" class="screen" hidden>
+      <form id="form-name" class="panel">
+        <h1 class="name-title" data-i18n="name_title"></h1>
+        <p class="muted" data-i18n="name_desc"></p>
+        <label><span data-i18n="display_name"></span><input id="in-firstname" name="nickname" maxlength="16" autocomplete="nickname" spellcheck="false" required aria-describedby="name-msg"></label>
+        <button class="btn btn-primary btn-big" type="submit" data-i18n="name_start"></button>
+        <p id="name-msg" class="msg" role="status"></p>
+      </form>
     </section>
 
     <!-- 2. home -->

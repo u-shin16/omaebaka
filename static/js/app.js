@@ -18,7 +18,7 @@
   function local(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
 
   function show(name) {
-    ['login', 'home', 'lobby', 'game', 'result'].forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
+    ['login', 'name', 'home', 'lobby', 'game', 'result'].forEach(function (s) { $('screen-' + s).hidden = (s !== name); });
   }
   function toast(msg) {
     var el = $('toast'); el.textContent = msg; el.hidden = false;
@@ -41,9 +41,31 @@
   socket.on('welcome', function (d) {
     me = d.user; stats = d.stats;
     renderAccount(); renderHome();
+    if (d.named === false) {           // first sign-in: choose a name before anything else
+      $('in-firstname').value = ''; $('name-msg').textContent = '';
+      show('name'); $('in-firstname').focus();
+      return;
+    }
+    enterApp();
+  });
+  function enterApp() {
     var want = (new URLSearchParams(location.search).get('room') || store('room') || '').toUpperCase();
     if (want) socket.emit('join_room', { code: want });
     else if (!room) show('home');
+  }
+  socket.on('name_set', function (d) {
+    if (me) me.name = d.name;
+    renderAccount(); renderHome();
+    $('name-view').hidden = false; $('name-edit').hidden = true;
+    if (!$('screen-name').hidden) enterApp();
+    else toast(t('name_saved'));
+  });
+  $('form-name').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var n = $('in-firstname').value.trim().slice(0, 16);
+    if (!n) { $('name-msg').textContent = t('err_bad_name'); $('in-firstname').setAttribute('aria-invalid', 'true'); $('in-firstname').focus(); return; }
+    $('in-firstname').removeAttribute('aria-invalid');
+    socket.emit('set_name', { name: n });
   });
   socket.on('auth_failed', function (d) {
     me = null; renderAccount(); show('login');
@@ -51,6 +73,7 @@
   });
   socket.on('error_msg', function (d) {
     toast(t('err_' + d.code));
+    if (!$('screen-name').hidden) $('name-msg').textContent = t('err_' + d.code);
     if (!$('screen-home').hidden) { $('join-msg').textContent = t('err_' + d.code); $('in-code').setAttribute('aria-invalid', 'true'); }
     if (d.code === 'room_not_found') { store('room', null); clearRoomParam(); if (!room) show('home'); }
   });
@@ -65,7 +88,7 @@
     if (fbReady && firebase.auth().currentUser) {
       var u = firebase.auth().currentUser;
       u.getIdToken().then(function (token) {
-        socket.emit('hello', { token: token, name: local('displayName') || u.displayName || '' });
+        socket.emit('hello', { token: token });
       });
     } else if (local('guestName') && $('form-guest')) {
       socket.emit('hello', { guest: true, name: local('guestName'), guestId: guestId() });
@@ -95,7 +118,6 @@
   function authError(e) { return (e && e.code && I18N.t(e.code) !== e.code) ? t(e.code) : t('auth_other'); }
 
   function renderAuthMode() {
-    $('row-name').hidden = authMode !== 'register';
     $('btn-email').textContent = authMode === 'login' ? t('sign_in') : t('create_account');
     $('in-pass').autocomplete = authMode === 'login' ? 'current-password' : 'new-password';
     $('link-toggle').textContent = authMode === 'login' ? t('to_register') : t('to_login');
@@ -132,11 +154,8 @@
     var release = function () { btn.disabled = false; renderAuthMode(); };
     $('login-msg').textContent = '';
     if (authMode === 'register') {
-      var name = $('in-regname').value.trim();
-      if (!name) { release(); $('login-msg').textContent = t('choose_name'); $('in-regname').focus(); return; }
       auth.createUserWithEmailAndPassword(email, pass).then(function (cred) {
-        local('displayName', name);
-        return cred.user.updateProfile({ displayName: name }).then(function () { return cred.user.sendEmailVerification(); });
+        return cred.user.sendEmailVerification();
       }).then(function () {
         release(); $('login-msg').textContent = t('check_inbox');
         return auth.signOut();
@@ -152,7 +171,6 @@
           };
           return;
         }
-        if (cred.user.displayName) local('displayName', cred.user.displayName);
       }).catch(function (e) { release(); $('login-msg').textContent = authError(e); });
     }
   });
@@ -213,14 +231,8 @@
     ev.preventDefault();
     var n = $('in-newname').value.trim().slice(0, 16);
     if (!n) { toast(t('choose_name')); return; }
-    var done = function () {
-      $('name-view').hidden = false; $('name-edit').hidden = true;
-      toast(t('name_saved')); hello();
-    };
-    if (me && me.guest) { local('guestName', n); done(); return; }
-    local('displayName', n);
-    var u = fbReady && firebase.auth().currentUser;
-    if (u) u.updateProfile({ displayName: n }).then(done, done); else done();
+    if (me && me.guest) local('guestName', n);
+    socket.emit('set_name', { name: n });
   });
 
   // ---------------- lobby ----------------
