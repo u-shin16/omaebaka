@@ -207,6 +207,17 @@ kbd { border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4p
 .ranking li.first .rank, .ranking li.first .pt { color: var(--red); }
 .ranking li.first .nm, .ranking li.first .pt { font-size: 1.5rem; }
 
+.review { margin: 0; padding-left: 1.4em; }
+.review li { padding: 12px 0; border-bottom: 2px solid var(--rule); }
+.review li:last-child { border-bottom: 0; }
+.review p { margin: 0; }
+.rv-q { font-weight: 700; }
+.rv-a { margin-top: 4px !important; display: flex; gap: 8px; align-items: baseline; }
+.rv-a span, .rv-ja > span { font-size: .75rem; font-weight: 800; color: var(--sub); }
+.rv-a b { color: var(--green); font-size: 1.05rem; }
+.rv-ja { margin-top: 8px; padding: 8px 10px; background: var(--studio); border-radius: 8px; font-size: .9rem; }
+.rv-ja b { color: var(--ink); }
+
 .toast {
   position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); max-width: calc(100% - 32px);
   background: var(--ink); color: var(--board); padding: 10px 16px; border-radius: 10px; font-size: .9rem; font-weight: 700; z-index: var(--z-toast);

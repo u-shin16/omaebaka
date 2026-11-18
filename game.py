@@ -70,6 +70,22 @@ def load_questions():
                     answer, question = line.split("|", 1)
                     items.append({"cat": key, "lang": lang, "a": answer.strip().upper(), "q": question.strip()})
             bank[lang][key] = items
+    # Japanese translations of the English questions, shown on the results screen
+    for key in CATEGORIES:
+        path = os.path.join(QUESTION_DIR, "en_ja", f"{key}.txt")
+        if not os.path.exists(path):
+            continue
+        tr = {}
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                en_answer, a_ja, q_ja = [x.strip() for x in line.split("|", 2)]
+                tr[en_answer.upper()] = (a_ja, q_ja)
+        for q in bank["en"][key]:
+            if q["a"] in tr:
+                q["a_ja"], q["q_ja"] = tr[q["a"]]
     return bank
 
 
@@ -384,6 +400,10 @@ class Room:
         if self.phase == "finished":
             ranking = sorted(self.players.values(), key=lambda p: (-p["score"], -p["correct"], p["wrong"]))
             state["ranking"] = [{"uid": p["uid"], "name": p["name"], "score": p["score"]} for p in ranking]
+            played = self.questions[: max(0, min(self.qi + 1, len(self.questions)))]
+            state["review"] = [
+                {k: q[k] for k in ("cat", "lang", "q", "a", "q_ja", "a_ja") if k in q} for q in played
+            ]
         return state
 
     def private_state(self, uid):

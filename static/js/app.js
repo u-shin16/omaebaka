@@ -320,6 +320,17 @@
       }).join('');
       $('btn-again').hidden = !isHost;
       $('r-wait').hidden = isHost;
+      var rev = room.review || [];
+      $('r-review-box').hidden = !rev.length;
+      $('r-review').innerHTML = rev.map(function (x) {
+        var h = '<li><p class="rv-q" lang="' + x.lang + '">' + esc(x.q) + '</p>' +
+          '<p class="rv-a"><span>' + esc(t('review_answer')) + '</span><b lang="' + x.lang + '">' + esc(x.a) + '</b></p>';
+        if (x.q_ja) {
+          h += '<div class="rv-ja" lang="ja"><span>' + esc(t('review_ja')) + '</span>' +
+            '<p>' + esc(x.q_ja) + '</p><p>' + esc(t('review_answer')) + '：<b>' + esc(x.a_ja) + '</b></p></div>';
+        }
+        return h + '</li>';
+      }).join('');
       return;
     }
     show('game');

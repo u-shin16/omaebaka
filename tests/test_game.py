@@ -115,3 +115,18 @@ def test_only_host_starts():
         r.start("b", 0); assert False
     except ValueError:
         pass
+
+
+def test_english_questions_have_japanese_translation():
+    for k, v in game.QUESTIONS["en"].items():
+        for q in v:
+            assert q.get("q_ja") and q.get("a_ja"), (k, q["a"])
+
+
+def test_results_include_review_of_played_questions():
+    r = make_room(); start_and_read(r)   # English history, 5 questions
+    t = 5
+    while r.phase != "finished":
+        t += 0.5; r.tick(t)
+    rev = r.public_state(t)["review"]
+    assert len(rev) == 5 and all(x["q_ja"] and x["a_ja"] for x in rev)
