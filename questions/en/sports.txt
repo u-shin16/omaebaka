@@ -1,0 +1,101 @@
+# Sports — format: ANSWER | Question
+9 | How many players does a baseball team have in the field on defense?
+5 | How many players per team are on a basketball court at once?
+6 | How many players per team are on a volleyball court at once?
+15 | How many players per team are on the field in rugby union?
+3 | In baseball, how many strikes make a strikeout?
+HOME RUN | In baseball, what is a hit that lets the batter circle all the bases?
+OFFSIDE | Which soccer rule stops attackers from waiting behind the last defender?
+HAT TRICK | What is it called when a player scores three goals in one game?
+PENALTY | Which kick is taken from 12 yards after a foul in the box? A ___ kick.
+WORLD CUP | What is the name of soccer's international tournament held every four years?
+2002 | In what year did Japan and South Korea co-host the soccer World Cup?
+1964 | In what year did Tokyo first host the Summer Olympics?
+2021 | In what year were the "Tokyo 2020" Olympics actually held?
+GREECE | In which country were the ancient Olympic Games held?
+COUBERTIN | Which Frenchman, Pierre de ___, founded the modern Olympic Games?
+MARATHON | Which running race is 42.195 kilometers long?
+BOLT | Which Jamaican sprinter, Usain ___, holds the 100m world record of 9.58 seconds?
+PHELPS | Which swimmer, Michael ___, won 23 Olympic gold medals?
+OHTANI | Which Japanese two-way star, Shohei ___, won the MLB MVP award?
+ICHIRO | Which Japanese player set the MLB single-season hits record with 262 in 2004?
+DODGERS | Which MLB team did Shohei Ohtani join in 2024? The Los Angeles ___
+YANKEES | Which MLB team plays in the Bronx, New York?
+BABE RUTH | Which legendary Yankee slugger was nicknamed "The Bambino"?
+YOKOZUNA | What is the highest rank in professional sumo?
+DOHYO | What is the name of the ring where sumo wrestlers fight?
+JUDO | Which martial art, founded by Jigoro Kano, is won with an "ippon"?
+KENDO | Which Japanese martial art uses bamboo swords and armor?
+KARATE | Which striking martial art developed in Okinawa?
+LOVE | In tennis, what word means a score of zero?
+NADAL | Which Spanish player, Rafael ___, won the French Open 14 times?
+FEDERER | Which Swiss tennis star, Roger ___, won 8 Wimbledon titles?
+OSAKA | Which player, Naomi ___, won the 2018 US Open women's title?
+JORDAN | Which basketball legend, Michael ___, won six titles with the Chicago Bulls?
+NBA | What is the three-letter name of North America's top basketball league?
+LEBRON | Which NBA star, ___ James, is the league's all-time leading scorer?
+DUNK | What is it called when a basketball player slams the ball through the hoop from above?
+THREE POINTER | What is a basket made from beyond the arc called in basketball?
+LIBERO | Which volleyball player is a defensive specialist wearing a different color shirt?
+TRY | In rugby, what is the 5-point score made by touching the ball down in the in-goal area?
+ALL BLACKS | What is the nickname of New Zealand's national rugby team?
+HAKA | What is the name of the Maori war dance the All Blacks perform before games?
+TOUCHDOWN | In American football, what is the six-point score called?
+SUPER BOWL | What is the name of the NFL's championship game?
+PUCK | What is the rubber disc used in ice hockey called?
+SENNA | Which Brazilian Formula One legend, Ayrton ___, won three world titles?
+HAMILTON | Which British driver, Lewis ___, has won seven Formula One world titles?
+TOUR DE FRANCE | What is the name of the famous three-week cycling race around France?
+HANYU | Which Japanese figure skater, Yuzuru ___, won Olympic gold in 2014 and 2018?
+AXEL | Which figure skating jump is the only one that takes off facing forward?
+PING-PONG | What is another name for table tennis, from the sound of the ball?
+SHUTTLECOCK | What is the feathered object hit in badminton?
+BUTTERFLY | Which swimming stroke uses both arms together and a dolphin kick?
+FREESTYLE | In which swimming event do almost all swimmers choose the front crawl?
+HURDLES | In which track event do runners jump over barriers?
+POLE VAULT | In which event do athletes use a long flexible pole to clear a high bar?
+TRIATHLON | Which race combines swimming, cycling and running?
+DECATHLON | Which two-day track and field event has ten events?
+KNOCKOUT | What does "KO" stand for in boxing?
+ALI | Which boxer, Muhammad ___, said he would "float like a butterfly, sting like a bee"?
+MASTERS | Which golf major is played every April at Augusta National?
+MATSUYAMA | Which golfer, Hideki ___, became the first Japanese man to win the Masters in 2021?
+WOODS | Which golfer, Tiger ___, has won the Masters five times?
+BIRDIE | In golf, what is a score of one stroke under par on a hole?
+EAGLE | In golf, what is a score of two strokes under par on a hole?
+SKATEBOARDING | Which board sport made its Olympic debut at Tokyo 2020?
+BOULDERING | Which climbing event is done on short walls without ropes?
+NADESHIKO | What is the nickname of Japan's women's soccer team? ___ Japan
+WBC | What are the initials of the World Baseball Classic?
+2023 | In what year did Japan win its third World Baseball Classic?
+MESSI | Which Argentine star, Lionel ___, won the 2022 World Cup?
+RONALDO | Which Portuguese soccer star, Cristiano ___, is known as CR7?
+PELE | Which Brazilian is the only player to win three World Cups?
+MARADONA | Which Argentine scored the "Hand of God" goal in 1986?
+BRAZIL | Which country has won the most men's World Cups?
+YELLOW CARD | What color card does a soccer referee show as a caution?
+GOALKEEPER | Which soccer player may handle the ball inside their own penalty area?
+FREE THROW | In basketball, what is an unguarded shot from the line after a foul called?
+ACE | In tennis, what is a serve that the opponent cannot touch called?
+PARALYMPICS | Which games for athletes with disabilities are held after the Olympics in the same city?
+TORCH | What is carried in a relay to light the Olympic cauldron? The Olympic ___
+CURLING | Which ice sport has players sweep the ice in front of a sliding stone?
+WIMBLEDON | Which tennis tournament is played on grass in London?
+DRIBBLE | What do you call moving the ball while bouncing or kicking it along?
+FENCING | Which Olympic sport is fought with foils, epees and sabres?
+WRESTLING | In which sport can you win by pinning both your opponent's shoulders to the mat?
+SNOWBOARDING | Which winter sport has riders slide downhill on a single board?
+STRIKE | In bowling, what is it called when you knock down all ten pins with the first ball?
+BILLIARDS | Which cue sport is played on a table with pockets?
+DARTS | Which game involves throwing small arrows at a round board?
+SPRINT | What do we call a short race run at full speed, like the 100 meters?
+RELAY | What is a race in which team members take turns, passing a baton?
+JAVELIN | Which throwing event uses a long spear?
+ARCHERY | Which Olympic sport uses a bow and arrows?
+ROWING | Which sport involves racing boats propelled by oars?
+SURFING | Which sport, also new at Tokyo 2020, is done riding ocean waves?
+GRAND SLAM | In tennis, what is winning all four major tournaments in one year called?
+CRICKET | Which bat-and-ball sport is hugely popular in India and England?
+SUMO | Which Japanese sport has two large wrestlers trying to push each other out of a ring?
+QUARTERBACK | In American football, which player usually throws the passes?
+DOPING | What do we call the banned use of drugs to improve performance in sport?

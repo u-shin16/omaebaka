@@ -1,0 +1,101 @@
+# Food & Cooking — format: ANSWER | Question
+TEMPURA | Which Japanese dish is seafood or vegetables fried in a light batter?
+SUKIYAKI | Which Japanese hot pot of sweet-simmered beef is dipped in raw egg?
+SHABU-SHABU | Which Japanese dish is thin meat swished in hot broth, named after the sound?
+OKONOMIYAKI | Which savory Japanese pancake is famous in Osaka and Hiroshima?
+TAKOYAKI | Which Osaka street food is a ball of batter with octopus inside?
+RAMEN | Which Japanese noodle soup comes in miso, shoyu and tonkotsu styles?
+UDON | Which thick wheat noodle is the specialty of Kagawa Prefecture?
+SOBA | Which noodle is made from buckwheat?
+ONIGIRI | What is the Japanese name for a rice ball?
+MISO | Which fermented soybean paste is used to make a classic Japanese soup?
+NATTO | Which sticky fermented soybean dish is famous for its stringy texture?
+TOFU | Which white food is made by curdling soy milk?
+SOY SAUCE | Which dark salty sauce is made from soybeans and wheat?
+WASABI | Which green paste served with sushi gives a sharp kick to the nose?
+UMEBOSHI | What are salty, sour Japanese pickled plums called?
+MOCHI | What are Japanese cakes made from pounded sticky rice called?
+DASHI | What is the Japanese soup stock made from kelp and bonito flakes?
+KOMBU | Which kind of kelp is used to make Japanese soup stock?
+UMAMI | Which fifth basic taste, after sweet, salty, sour and bitter, was identified in Japan?
+WASHOKU | Which traditional Japanese food culture was added to UNESCO's heritage list in 2013?
+GYUDON | Which Japanese rice bowl is topped with simmered beef and onion?
+OYAKODON | Which Japanese rice bowl of chicken and egg means "parent and child"?
+KATSUDON | Which Japanese rice bowl is topped with a breaded pork cutlet and egg?
+CURRY | Which spicy dish from India became one of Japan's most popular home meals?
+OMURICE | Which Japanese dish wraps ketchup fried rice in a thin omelet?
+GYOZA | What are Japanese pan-fried dumplings called?
+KARAAGE | What is Japanese-style fried chicken called?
+YAKITORI | What are Japanese grilled chicken skewers called?
+PIZZA | Which flatbread dish with tomato and cheese comes from Naples?
+MARGHERITA | Which pizza with tomato, mozzarella and basil shows the colors of Italy's flag?
+AL DENTE | What Italian phrase describes pasta cooked to be firm to the bite?
+PAELLA | Which Spanish rice dish is colored yellow with saffron?
+KIMCHI | Which spicy fermented cabbage dish comes from Korea?
+BIBIMBAP | Which Korean dish is rice topped with vegetables that you mix before eating?
+PHO | Which Vietnamese noodle soup is made with rice noodles and herbs?
+TOM YUM | Which hot and sour Thai soup often contains shrimp?
+BORSCHT | Which red soup made with beets is popular in Ukraine and Russia?
+FONDUE | Which Swiss dish has you dip bread into a pot of melted cheese?
+CROISSANT | Which crescent-shaped buttery pastry is a French breakfast favorite?
+MACARON | Which colorful French cookie is made with almond flour and egg whites?
+TIRAMISU | Which Italian dessert's name means "pick me up"?
+HAMBURGER | What is a ground beef patty served in a bun called?
+HOT DOG | What is a sausage served in a long bun called?
+TACOS | Which Mexican dish is a folded tortilla filled with meat or beans?
+KEBAB | Which Middle Eastern dish is meat grilled on a skewer or a vertical spit?
+NAAN | Which Indian flatbread is baked in a tandoor oven?
+RARE | Which steak doneness leaves the inside mostly red?
+WELL DONE | Which steak doneness means cooked all the way through?
+CROQUETTE | What is a breaded, fried patty of mashed potato or meat called?
+BAGEL | Which ring-shaped bread is boiled before it is baked?
+PRETZEL | Which knotted baked snack is famous in Germany?
+BAGUETTE | Which long, thin loaf of bread is a symbol of France?
+CHEDDAR | Which popular cheese is named after a village in England?
+PARMESAN | Which hard Italian cheese is often grated over pasta?
+GUACAMOLE | Which Mexican dip is made from mashed avocado?
+SALSA | Which Mexican sauce is made with chopped tomatoes, onion and chili?
+HUMMUS | Which Middle Eastern dip is made from chickpeas and tahini?
+FALAFEL | What are deep-fried balls of ground chickpeas called?
+CHOCOLATE | Which sweet is made from roasted cacao beans?
+VANILLA | Which flavor comes from the pods of an orchid?
+CINNAMON | Which spice comes from the inner bark of a tree?
+SAFFRON | Which spice, made from crocus flowers, is the most expensive by weight?
+PEPPER | Which spice, black or white, is the most traded in the world?
+GINGER | Which spicy root is pickled pink and served with sushi?
+GARLIC | Which strong-smelling bulb is said to keep vampires away?
+ONION | Which vegetable makes people cry when they cut it?
+TOMATO | Which red fruit is the main ingredient of ketchup?
+POTATO | Which vegetable is used to make chips and French fries?
+AVOCADO | Which green fruit is nicknamed "butter of the forest"?
+DURIAN | Which spiky fruit, called the "king of fruits," is famous for its strong smell?
+MANGO | Which tropical fruit is the national fruit of India?
+STRAWBERRY | Which red fruit has its seeds on the outside?
+WATERMELON | Which large striped fruit is about 90% water?
+COCONUT | Which hairy brown fruit has water inside?
+LEMON | Which yellow citrus fruit is very sour?
+CHERRY | Which small red fruit grows in pairs on long stems?
+PEACH | Which fuzzy fruit is the boy Momotaro said to be born from?
+RICE | Which grain is the staple food of Japan?
+WHEAT | Which grain is ground into flour for bread?
+CORN | Which grain grows on a cob and is popped into a snack?
+SALMON | Which pink-orange fish swims upstream to lay its eggs?
+TUNA | Which fish provides "toro" for sushi?
+IKURA | What are the bright orange salmon eggs on sushi called?
+UNI | What is the Japanese name for sea urchin eaten as sushi?
+FUGU | Which poisonous pufferfish can only be prepared by licensed chefs in Japan?
+OYSTER | Which shellfish is often eaten raw and can contain a pearl?
+LOBSTER | Which large shellfish with big claws turns red when cooked?
+KETCHUP | Which red tomato sauce do people put on fries?
+MAYONNAISE | Which creamy sauce is made from egg yolks and oil?
+MUSTARD | Which yellow sauce is made from ground seeds and often goes on hot dogs?
+VINEGAR | Which sour liquid is used to season sushi rice?
+HONEY | Which sweet food never spoils and has been found in ancient Egyptian tombs?
+BUTTER | What is made by churning cream?
+YOGURT | Which food is made by fermenting milk with bacteria?
+PANCAKE | Which flat breakfast cake is often served with maple syrup?
+WAFFLE | Which breakfast food has a grid pattern pressed into it?
+DONUT | Which ring-shaped fried sweet often has a hole in the middle?
+POPCORN | Which snack is made from corn kernels that burst when heated?
+INSTANT RAMEN | Which quick noodle was invented by Momofuku Ando in 1958?
+TERIYAKI | Which Japanese cooking style glazes meat or fish with a sweet soy sauce?

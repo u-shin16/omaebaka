@@ -14,6 +14,10 @@ CATEGORIES = {
     "geography": "Geography",
     "music": "Music",
     "it": "IT",
+    "anime": "Anime, Manga & Games",
+    "sports": "Sports",
+    "science": "Science & Nature",
+    "food": "Food & Cooking",
 }
 CATEGORY_CHOICES = list(CATEGORIES) + ["mix"]
 LANGS = ["en", "ja"]

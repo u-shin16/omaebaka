@@ -2,7 +2,7 @@
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var t = I18N.t;
-  var CAT_KEYS = ['mix', 'general', 'history', 'geography', 'music', 'it'];
+  var CAT_KEYS = ['mix', 'general', 'history', 'geography', 'music', 'it', 'anime', 'sports', 'science', 'food'];
   var COUNTS = [5, 10, 15, 20];
   var QLANGS = ['ja', 'en'];
 

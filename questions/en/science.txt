@@ -1,0 +1,101 @@
+# Science & Nature — format: ANSWER | Question
+HYDROGEN | Which element, with the symbol H, is the lightest of all?
+HELIUM | Which gas, with the symbol He, makes balloons float?
+CARBON DIOXIDE | Which gas do plants take in for photosynthesis?
+PHOTOSYNTHESIS | What process do plants use to turn sunlight into food?
+CHLOROPHYLL | What green pigment lets plants absorb light?
+CELL | What is the basic unit of all living things?
+DNA | What three-letter molecule carries genetic information?
+MENDEL | Which monk, Gregor ___, discovered the laws of heredity using pea plants?
+PLATELETS | Which blood cells help stop bleeding by forming clots?
+HEMOGLOBIN | Which protein in red blood cells carries oxygen?
+LUNGS | Which organs take in oxygen and release carbon dioxide?
+LIVER | What is the largest organ inside the human body?
+KIDNEYS | Which bean-shaped organs filter blood and make urine?
+STOMACH | Which organ mixes food with acid to digest it?
+BRAIN | Which organ controls thinking and movement?
+46 | How many chromosomes are in a normal human body cell?
+4 | How many chambers does the human heart have?
+MAMMALS | Which group of animals feeds its young with milk?
+REPTILES | Snakes, lizards and turtles belong to which group of animals?
+AMPHIBIANS | Frogs and salamanders belong to which group of animals?
+INSECTS | Which group of animals has six legs and a body in three parts?
+6 | How many legs does an insect have?
+PUPA | What is the stage between larva and adult in a butterfly's life?
+METAMORPHOSIS | What is the change from caterpillar to butterfly called?
+PLATYPUS | Which egg-laying mammal has a duck-like bill?
+OSTRICH | What is the largest living bird?
+HUMMINGBIRD | Which tiny bird can hover in place and even fly backwards?
+COELACANTH | Which "living fossil" fish was thought extinct until 1938?
+T REX | Which giant meat-eating dinosaur's name means "tyrant lizard king"?
+FOSSIL | What do we call the preserved remains of an ancient living thing in rock?
+GINKGO | Which "living fossil" tree has fan-shaped leaves that turn yellow in autumn?
+POLLEN | What powder do flowers produce that bees carry from plant to plant?
+CACTUS | Which desert plant has spines instead of leaves?
+RAFFLESIA | Which plant has the largest single flower in the world?
+FUNGI | Mushrooms and molds belong to which kingdom of living things?
+PENICILLIN | Which antibiotic did Alexander Fleming discover in mold in 1928?
+VACCINE | What do we call a shot that trains the body to fight a disease?
+JENNER | Which English doctor, Edward ___, developed the smallpox vaccine?
+PASTEUR | Which French scientist, Louis ___, gave his name to a way of heating milk to kill germs?
+LIGHT | What travels at about 300,000 km per second?
+SOUND | What travels through air at about 340 meters per second?
+ELECTRON | Which particle in an atom has a negative charge?
+PROTON | Which particle in an atom's nucleus has a positive charge?
+NEUTRON | Which particle in an atom's nucleus has no charge?
+7 | What pH value is neutral?
+NITROGEN | Which gas makes up about 78% of Earth's air?
+21 | About what percentage of air is oxygen?
+CARBON | Diamonds and pencil graphite are both made of which element?
+MERCURY | Which metal is liquid at room temperature?
+SILVER | Which metal conducts electricity better than any other?
+ALUMINUM | Which light metal is used to make drink cans and foil?
+MAGNET | What object attracts iron and has a north and a south pole?
+ARCHIMEDES | Which Greek scientist shouted "Eureka!" after discovering the principle of buoyancy?
+VOLT | What is the unit of electric potential difference, with the symbol V?
+OHM | What is the unit of electrical resistance?
+KELVIN | What is the unit of absolute temperature?
+LIGHT YEAR | What unit measures the distance light travels in one year?
+POLARIS | What is the name of the North Star?
+SIRIUS | What is the brightest star in the night sky?
+ORION | Which winter constellation contains Betelgeuse and Rigel?
+SCORPIUS | Which summer constellation contains the red star Antares?
+PLEIADES | What star cluster is called "Subaru" in Japanese?
+BLACK HOLE | What object in space has gravity so strong that not even light can escape?
+MILKY WAY | What is the name of our galaxy?
+HAYABUSA | Which Japanese space probe brought back dust from the asteroid Itokawa?
+SOLAR ECLIPSE | What happens when the Moon blocks the Sun?
+LUNAR ECLIPSE | What happens when the Earth's shadow falls on the Moon?
+8 | How many planets are in our solar system?
+PLUTO | Which body was reclassified as a dwarf planet in 2006?
+VENUS | Which planet is called the "morning star" and "evening star"?
+MAGMA | What is melted rock beneath the Earth's surface called?
+GRANITE | Which light-colored rock forms when magma cools slowly underground?
+PLATES | What are the giant moving slabs of Earth's crust called? Tectonic ___
+STRATA | What are the layers of sedimentary rock called?
+EVAPORATION | What do we call water turning into vapor at its surface?
+LEVER | Which simple machine uses a fulcrum, an effort and a load?
+FRICTION | Which force slows down objects that rub against each other?
+DOUBLE HELIX | What shape describes the structure of DNA?
+SODIUM | Which element has the symbol Na?
+CALCIUM | Which element is the main mineral in bones and teeth?
+VITAMIN C | A lack of which vitamin causes scurvy?
+INSULIN | Which hormone from the pancreas lowers blood sugar?
+ADRENALINE | Which hormone makes your heart race when you are scared or excited?
+MITOCHONDRIA | Which part of the cell is called its "powerhouse"?
+GILLS | What organs do fish use to breathe underwater?
+CHAMELEON | Which lizard can change color and move its eyes separately?
+FLAMINGO | Which pink bird often rests standing on one leg?
+DANDELION | Which yellow flower turns into a puffball of seeds blown by the wind?
+VENUS FLYTRAP | Which carnivorous plant snaps its leaves shut on insects?
+AMOEBA | Which single-celled organism moves by changing its shape?
+PENDULUM | What swinging weight did Galileo study to measure time?
+GALILEO | Which Italian scientist improved the telescope and saw Jupiter's moons in 1610?
+CURIE | Which scientist, Marie ___, discovered radium and polonium?
+NEWTON | What unit of force is named after the scientist who described gravity?
+ATOM | What is the smallest unit of a chemical element?
+MOLECULE | What do we call two or more atoms bonded together, like H2O?
+ACID | What do we call a substance with a pH lower than 7?
+WHALE | Which mammal lives its whole life in the ocean and breathes through a blowhole?
+PREDATOR | What do we call an animal that hunts other animals for food?
+HERBIVORE | What do we call an animal that eats only plants?

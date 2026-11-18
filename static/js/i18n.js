@@ -10,7 +10,7 @@ var I18N = (function () {
       sign_in: 'Sign in', create_account: 'Create account',
       to_register: 'New here? Create an account', to_login: 'Have an account? Sign in', forgot: 'Forgot password?',
       how_title: 'How to play',
-      how_list: '<li><b>Create a room</b> and choose the question language (Japanese or English) and a category: General Knowledge, History, Geography, Music, IT, or a mix.</li>' +
+      how_list: '<li><b>Create a room</b> and choose the question language (Japanese or English) and a category: General Knowledge, History, Geography, Music, IT, Anime, Sports, Science, Food, or a mix.</li>' +
         '<li><b>Share the room code</b> (or the invite link) with up to 7 friends.</li>' +
         '<li>The question appears little by little. <b>Buzz</b> (or press <kbd>Space</kbd>) as soon as you know the answer.</li>' +
         '<li><b>Spell the answer</b> by choosing the right character from four options, one at a time (keys <kbd>1</kbd>–<kbd>4</kbd>).</li>' +
@@ -32,7 +32,7 @@ var I18N = (function () {
       enter_email_first: 'Enter your email above first.', reset_sent: 'Password reset email sent.',
       share_text: 'Join my quiz room: {c}',
       lang_en: 'English', lang_ja: '日本語',
-      cat_mix: 'Mix (all categories)', cat_general: 'General Knowledge', cat_history: 'History', cat_geography: 'Geography', cat_music: 'Music', cat_it: 'IT',
+      cat_mix: 'Mix (all categories)', cat_general: 'General Knowledge', cat_history: 'History', cat_geography: 'Geography', cat_music: 'Music', cat_it: 'IT', cat_anime: 'Anime, Manga & Games', cat_sports: 'Sports', cat_science: 'Science & Nature', cat_food: 'Food & Cooking',
       err_room_full: 'This room is full (max 8 players).', err_host_only_settings: 'Only the host can change settings.',
       err_host_only_start: 'Only the host can start the game.', err_already_started: 'The game has already started.',
       err_bad_category: 'Unknown category.', err_bad_count: 'Unknown question count.', err_bad_lang: 'Unknown language.',
@@ -52,7 +52,7 @@ var I18N = (function () {
       sign_in: 'ログイン', create_account: 'アカウントを作る',
       to_register: 'はじめての方はアカウントを作成', to_login: 'アカウントをお持ちの方はログイン', forgot: 'パスワードを忘れた方',
       how_title: '遊び方',
-      how_list: '<li><b>部屋を作り</b>、問題の言語（日本語・英語）とジャンル（常識・歴史・地理・音楽・IT・ミックス）を選びます。</li>' +
+      how_list: '<li><b>部屋を作り</b>、問題の言語（日本語・英語）とジャンル（常識・歴史・地理・音楽・IT・アニメ・スポーツ・理科・食べ物・ミックス）を選びます。</li>' +
         '<li><b>部屋コード</b>（または招待リンク）を最大7人の友だちに送ります。</li>' +
         '<li>問題は少しずつ表示されます。わかったらすぐ<b>BUZZ</b>（<kbd>スペース</kbd>キーでも可）。</li>' +
         '<li>4つの候補から正しい文字を選び、<b>答えを1文字ずつ完成</b>させます（<kbd>1</kbd>〜<kbd>4</kbd>キーでも可）。</li>' +
@@ -74,7 +74,7 @@ var I18N = (function () {
       enter_email_first: '上の欄にメールアドレスを入力してください。', reset_sent: 'パスワード再設定のメールを送りました。',
       share_text: '早押しクイズの部屋に入って! コード：{c}',
       lang_en: 'English（英語）', lang_ja: '日本語',
-      cat_mix: 'ミックス（全ジャンル）', cat_general: '常識', cat_history: '歴史', cat_geography: '地理', cat_music: '音楽', cat_it: 'IT',
+      cat_mix: 'ミックス（全ジャンル）', cat_general: '常識', cat_history: '歴史', cat_geography: '地理', cat_music: '音楽', cat_it: 'IT', cat_anime: 'アニメ・マンガ・ゲーム', cat_sports: 'スポーツ', cat_science: '理科・生き物', cat_food: '食べ物・料理',
       err_room_full: 'この部屋は満員です（最大8人）。', err_host_only_settings: '設定を変えられるのはホストだけです。',
       err_host_only_start: 'ゲームを始められるのはホストだけです。', err_already_started: 'ゲームはもう始まっています。',
       err_bad_category: 'ジャンルが正しくありません。', err_bad_count: '問題数が正しくありません。', err_bad_lang: '言語が正しくありません。',
