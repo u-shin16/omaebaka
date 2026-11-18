@@ -6,7 +6,7 @@ import threading
 import time
 
 from dotenv import load_dotenv
-from flask import Flask, Response, jsonify, render_template, request
+from flask import Flask, Response, jsonify, render_template, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room, leave_room
 
 import game
@@ -307,6 +307,11 @@ def privacy():
 @app.route("/terms")
 def terms():
     return render_template("terms.html")
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(os.path.join(BASE_DIR, "static", "icons"), "favicon.ico", mimetype="image/vnd.microsoft.icon", max_age=86400)
 
 
 @app.route("/healthz")
