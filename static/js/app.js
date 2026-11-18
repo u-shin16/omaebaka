@@ -371,6 +371,11 @@
       return '<span class="slot' + (c === '_' ? '' : ' filled') + '">' + (c === '_' ? '' : esc(c)) + '</span>';
     }).join('');
     m.className = 'mask' + (room.phase === 'reveal' ? ' reveal' : '');
+    var ja = $('g-ja');
+    if (room.phase === 'reveal' && room.q_ja) {
+      ja.innerHTML = '<span>' + esc(t('review_ja')) + '</span><p>' + esc(room.q_ja) + '</p><p>' + esc(t('review_answer')) + '：<b>' + esc(room.a_ja) + '</b></p>';
+      ja.hidden = false;
+    } else ja.hidden = true;
     m.setAttribute('aria-label', room.phase === 'reveal' ? t('answer_label', { a: room.answer }) : (chars || []).join(''));
 
     // buzz button

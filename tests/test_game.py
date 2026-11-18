@@ -59,7 +59,9 @@ def test_correct_answer_scores_and_reveals():
     assert not r.buzz("b", 5)           # second buzz ignored
     assert spell(r, "a", 5.5) == "correct"
     assert r.players["a"]["score"] == 10 and r.phase == "reveal"
-    r.tick(5.5 + game.REVEAL_TIME + 0.01)
+    s = r.public_state(5.6)
+    assert s["q_ja"] and s["a_ja"]               # English question: translation shown right away
+    r.tick(5.5 + game.REVEAL_TIME_EN + 0.01)
     assert r.qi == 1 and r.phase == "intro"
 
 

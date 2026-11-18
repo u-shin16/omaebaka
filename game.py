@@ -30,6 +30,7 @@ EN_INTERVAL = 0.05        # seconds per character (English letters are narrower 
 BUZZ_WINDOW = 6.0         # seconds to buzz after the full question is shown
 PICK_TIME = 5.0           # seconds to choose each character; resets after every correct character
 REVEAL_TIME = 4.0         # seconds the correct answer is shown
+REVEAL_TIME_EN = 7.0      # English questions also show a Japanese translation, so give time to read it
 COUNTDOWN = 3.0           # seconds before the first question
 INTRO_TIME = 1.6          # seconds "Question N" is shown before each question
 POINTS_CORRECT = 10
@@ -236,6 +237,10 @@ class Room:
         self.next_at = now + self.interval()
         self._touch()
 
+    def reveal_time(self):
+        q = self.current()
+        return REVEAL_TIME_EN if q and q.get("q_ja") else REVEAL_TIME
+
     def interval(self):
         q = self.current()
         return JA_INTERVAL if q and q["lang"] == "ja" else EN_INTERVAL
@@ -285,7 +290,7 @@ class Room:
             self.phase = "reveal"
             self.shown = len(self.words)
             self.event = {"type": "correct", "uid": uid, "name": p["name"]}
-            self.next_at = now + REVEAL_TIME
+            self.next_at = now + self.reveal_time()
             self._touch()
             return "correct"
         self.options = make_options(q["a"][slots[self.pos]], self.rng)
@@ -317,7 +322,7 @@ class Room:
         self.shown = len(self.words)
         self.buzzer = None
         self.event = {"type": "nobody"}
-        self.next_at = now + REVEAL_TIME
+        self.next_at = now + self.reveal_time()
         self._touch()
 
     # ---------- clock ----------
@@ -387,6 +392,9 @@ class Room:
             ans = q["a"]
             if self.phase == "reveal":
                 state["answer"] = ans
+                if q.get("q_ja"):
+                    state["q_ja"] = q["q_ja"]
+                    state["a_ja"] = q["a_ja"]
             else:
                 slots = answer_slots(ans)
                 filled = set(slots[: self.pos]) if self.phase == "answering" else set()

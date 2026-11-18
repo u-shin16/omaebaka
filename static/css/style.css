@@ -217,6 +217,8 @@ kbd { border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4p
 .rv-a b { color: var(--green); font-size: 1.05rem; }
 .rv-ja { margin-top: 8px; padding: 8px 10px; background: var(--studio); border-radius: 8px; font-size: .9rem; }
 .rv-ja b { color: var(--ink); }
+.live-ja { margin-top: 0; padding: 12px 14px; background: var(--board); border: 2px solid var(--rule); border-radius: 12px; font-size: 1rem; }
+.live-ja p { margin: 2px 0 0; }
 
 .toast {
   position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); transform: translateX(-50%); max-width: calc(100% - 32px);
